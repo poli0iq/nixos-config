@@ -59,6 +59,12 @@
       {
         fallback = makeNixosConfiguration "fallback-hostname" [ ];
 
+        madoka = makeNixosConfiguration "madoka" [
+          ./system/madoka
+          lanzaboote.nixosModules.lanzaboote
+          agenix.nixosModules.age
+        ];
+
         sayaka = makeNixosConfiguration "sayaka" [
           ./system/sayaka
           lanzaboote.nixosModules.lanzaboote
@@ -88,6 +94,8 @@
       in
       {
         "poli" = makeHomeConfiguration [ ];
+
+        "poli@madoka" = makeHomeConfiguration [ ];
 
         "poli@sayaka" = makeHomeConfiguration [ ];
 
