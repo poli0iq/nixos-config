@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   programs.nixvim = {
     enable = true;
 
@@ -62,10 +62,10 @@
             };
           };
 
-          nil_ls = {
+          nixd = {
             enable = true;
             settings = {
-              formatting.command = [ "nixpkgs-fmt" ];
+              formatting.command = [ "${pkgs.nixfmt}/bin/nixfmt" ];
             };
           };
 
