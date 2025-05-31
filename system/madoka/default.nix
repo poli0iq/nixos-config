@@ -13,6 +13,12 @@
 
   services.fprintd.enable = true;
   hardware.bluetooth.enable = true;
+  hardware.graphics.extraPackages = with pkgs; [
+    intel-media-driver
+    intel-ocl
+    intel-compute-runtime
+    vpl-gpu-rt
+  ];
 
   # Lanzaboote currently replaces the systemd-boot module.
   # This setting is usually set to true in configuration.nix
