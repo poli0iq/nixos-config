@@ -24,6 +24,7 @@
   services.ollama.rocmOverrideGfx = "10.3.0";
 
   hardware.bluetooth.enable = true;
+  hardware.steam-hardware.enable = true;
 
   # lanzaboote
 
