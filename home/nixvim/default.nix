@@ -69,25 +69,21 @@
             };
           };
 
-          texlab = {
-            enable = true;
-            extraOptions.settings = {
-              texlab = {
-                build = {
-                  onSave = true;
-                  forwardSearchAfter = true;
-                  #args = [ "-xelatex" ];
-                };
-                forwardSearch = {
-                  executable = "zathura";
-                  args = [ "%p" "--synctex-forward=%l:1:%f" ];
-                };
-                chktex = {
-                  onOpenAndSave = true;
-                };
-              };
-            };
-          };
+          #texlab = {
+          #  enable = true;
+          #  extraOptions.settings = {
+          #    texlab = {
+          #      build = {
+          #        onSave = true;
+          #        forwardSearchAfter = true;
+          #        #args = [ "-xelatex" ];
+          #      };
+          #      chktex = {
+          #        onOpenAndSave = true;
+          #      };
+          #    };
+          #  };
+          #};
 
           tinymist = {
             enable = true;
