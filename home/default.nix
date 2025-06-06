@@ -31,7 +31,6 @@
     wl-clipboard
 
     # dev
-    texlive.combined.scheme-full
     gcc
     gnumake
     cargo
