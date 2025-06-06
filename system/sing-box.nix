@@ -44,8 +44,6 @@
           address = [ "172.19.0.1/30" ];
           auto_route = true;
           strict_route = true;
-          #sniff = true;
-          #sniff_override_destination = true;
         }
       ];
 
@@ -57,10 +55,6 @@
         {
           type = "block";
           tag = "block";
-        }
-        {
-          type = "dns";
-          tag = "dns-out";
         }
         {
           type = "vless";
@@ -92,8 +86,11 @@
       route = {
         rules = [
           {
+            action = "sniff";
+          }
+          {
             protocol = "dns";
-            outbound = "dns-out";
+            action = "hijack-dns";
           }
           {
             ip_is_private = true;
