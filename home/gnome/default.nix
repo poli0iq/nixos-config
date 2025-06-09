@@ -40,7 +40,7 @@
     };
 
     "org/gnome/mutter" = {
-      experimental-features = [ "scale-monitor-framebuffer" ];
+      experimental-features = [ "scale-monitor-framebuffer" "xwayland-native-scaling" ];
     };
 
     "org/gnome/settings-daemon/plugins/color" = {
