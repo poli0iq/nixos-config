@@ -16,6 +16,8 @@
     papers
     # New video player
     showtime
+    # Matrix client
+    fractal
   ];
 
   xdg.mimeApps = {
