@@ -204,12 +204,12 @@
   # Enable ucode updates
   hardware.enableRedistributableFirmware = true;
 
-  services.xserver = {
+  services.displayManager.gdm = {
     enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-    excludePackages = [ pkgs.xterm ];
+    banner = "you're cute!!! ><";
   };
+
+  services.desktopManager.gnome.enable = true;
 
   environment.gnome.excludePackages = with pkgs; [
     # Old video player, will be replaced with showtime in GNOME 49
