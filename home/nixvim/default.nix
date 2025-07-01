@@ -65,7 +65,7 @@
           nixd = {
             enable = true;
             settings = {
-              formatting.command = [ "${pkgs.nixfmt}/bin/nixfmt" ];
+              formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
             };
           };
 
