@@ -23,7 +23,7 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "application/pdf" = "org.gnome.Evince.desktop";
+      "application/pdf" = "org.gnome.Papers.desktop";
       "image/png" = "org.gnome.Loupe.desktop";
       "image/jpeg" = "org.gnome.Loupe.desktop";
       #"text/html" = "org.gnome.Epiphany.desktop";
