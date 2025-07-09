@@ -26,6 +26,7 @@
       "application/pdf" = "org.gnome.Papers.desktop";
       "image/png" = "org.gnome.Loupe.desktop";
       "image/jpeg" = "org.gnome.Loupe.desktop";
+      "image/webp" = "org.gnome.Loupe.desktop";
       #"text/html" = "org.gnome.Epiphany.desktop";
       #"x-scheme-handler/http" = "org.gnome.Epiphany.desktop";
       #"x-scheme-handler/https" = "org.gnome.Epiphany.desktop";
