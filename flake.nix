@@ -43,63 +43,83 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, lanzaboote, nixvim, agenix, nix-index-database, nur, ... }@inputs: {
-    nixosConfigurations =
-      let
-        makeNixosConfiguration = name: modules: nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ({ ... }: { networking.hostName = name; })
-            ./system
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      lanzaboote,
+      nixvim,
+      agenix,
+      nix-index-database,
+      nur,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations =
+        let
+          makeNixosConfiguration =
+            name: modules:
+            nixpkgs.lib.nixosSystem {
+              system = "x86_64-linux";
+              specialArgs = { inherit inputs; };
+              modules = [
+                (
+                  { ... }:
+                  {
+                    networking.hostName = name;
+                  }
+                )
 
-          ] ++ modules;
+                ./system
+              ] ++ modules;
+            };
+        in
+        {
+          fallback = makeNixosConfiguration "fallback-hostname" [ ];
+
+          madoka = makeNixosConfiguration "madoka" [
+            ./system/madoka
+            lanzaboote.nixosModules.lanzaboote
+            agenix.nixosModules.age
+          ];
+
+          sayaka = makeNixosConfiguration "sayaka" [
+            ./system/sayaka
+            lanzaboote.nixosModules.lanzaboote
+            agenix.nixosModules.age
+          ];
+
+          homura = makeNixosConfiguration "homura" [
+            ./system/homura
+            lanzaboote.nixosModules.lanzaboote
+            agenix.nixosModules.age
+          ];
         };
-      in
-      {
-        fallback = makeNixosConfiguration "fallback-hostname" [ ];
 
-        madoka = makeNixosConfiguration "madoka" [
-          ./system/madoka
-          lanzaboote.nixosModules.lanzaboote
-          agenix.nixosModules.age
-        ];
+      homeConfigurations =
+        let
+          makeHomeConfiguration =
+            modules:
+            home-manager.lib.homeManagerConfiguration {
+              pkgs = nixpkgs.legacyPackages.x86_64-linux;
+              extraSpecialArgs = { inherit inputs; };
+              modules = [
+                ./home
+                ./home/gnome
+                nixvim.homeManagerModules.nixvim
+                nix-index-database.hmModules.nix-index
+                nur.modules.homeManager.default
+              ] ++ modules;
+            };
+        in
+        {
+          "poli" = makeHomeConfiguration [ ];
 
-        sayaka = makeNixosConfiguration "sayaka" [
-          ./system/sayaka
-          lanzaboote.nixosModules.lanzaboote
-          agenix.nixosModules.age
-        ];
+          "poli@madoka" = makeHomeConfiguration [ ];
 
-        homura = makeNixosConfiguration "homura" [
-          ./system/homura
-          lanzaboote.nixosModules.lanzaboote
-          agenix.nixosModules.age
-        ];
-      };
+          "poli@sayaka" = makeHomeConfiguration [ ];
 
-    homeConfigurations =
-      let
-        makeHomeConfiguration = modules: home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs; };
-          modules = [
-            ./home
-            ./home/gnome
-            nixvim.homeManagerModules.nixvim
-            nix-index-database.hmModules.nix-index
-            nur.modules.homeManager.default
-          ] ++ modules;
+          "poli@homura" = makeHomeConfiguration [ ];
         };
-      in
-      {
-        "poli" = makeHomeConfiguration [ ];
-
-        "poli@madoka" = makeHomeConfiguration [ ];
-
-        "poli@sayaka" = makeHomeConfiguration [ ];
-
-        "poli@homura" = makeHomeConfiguration [ ];
-      };
-  };
+    };
 }

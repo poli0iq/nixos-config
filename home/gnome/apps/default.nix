@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   home.packages = with pkgs; [
     # CalDAV-compatible personal task manager
     errands
@@ -36,115 +37,114 @@
 
   dconf.settings = {
     # GNOME Web
-    "org/gnome/epiphany" =
-      {
-        search-engine-providers =
-          let
-            mkDictionaryEntry = lib.hm.gvariant.mkDictionaryEntry;
-            mkVariant = lib.hm.gvariant.mkVariant;
-          in
+    "org/gnome/epiphany" = {
+      search-engine-providers =
+        let
+          mkDictionaryEntry = lib.hm.gvariant.mkDictionaryEntry;
+          mkVariant = lib.hm.gvariant.mkVariant;
+        in
+        [
           [
-            [
-              (mkDictionaryEntry [
-                "url"
-                (mkVariant "https://duckduckgo.com/?q=%s&t=epiphany")
-              ])
-              (mkDictionaryEntry [
-                "bang"
-                (mkVariant "!ddg")
-              ])
-              (mkDictionaryEntry [
-                "name"
-                (mkVariant "DuckDuckGo")
-              ])
-            ]
-            [
-              (mkDictionaryEntry [
-                "url"
-                (mkVariant "https://kagi.com/search?q=%s")
-              ])
-              (mkDictionaryEntry [
-                "bang"
-                (mkVariant "!k")
-              ])
-              (mkDictionaryEntry [
-                "name"
-                (mkVariant "Kagi")
-              ])
-            ]
-            [
-              (mkDictionaryEntry [
-                "url"
-                (mkVariant "https://www.google.com/search?q=%s")
-              ])
-              (mkDictionaryEntry [
-                "bang"
-                (mkVariant "!g")
-              ])
-              (mkDictionaryEntry [
-                "name"
-                (mkVariant "Google")
-              ])
-            ]
-            [
-              (mkDictionaryEntry [
-                "url"
-                (mkVariant "https://context.reverso.net/translation/english-russian/%s")
-              ])
-              (mkDictionaryEntry [
-                "bang"
-                (mkVariant "!rc")
-              ])
-              (mkDictionaryEntry [
-                "name"
-                (mkVariant "ReversoContext")
-              ])
-            ]
-            [
-              (mkDictionaryEntry [
-                "url"
-                (mkVariant "https://search.nixos.org/packages?query=%s")
-              ])
-              (mkDictionaryEntry [
-                "bang"
-                (mkVariant "!nixos-packages")
-              ])
-              (mkDictionaryEntry [
-                "name"
-                (mkVariant "NixOS Packages")
-              ])
-            ]
-            [
-              (mkDictionaryEntry [
-                "url"
-                (mkVariant "https://search.nixos.org/options?query=%s")
-              ])
-              (mkDictionaryEntry [
-                "bang"
-                (mkVariant "!nixos-options")
-              ])
-              (mkDictionaryEntry [
-                "name"
-                (mkVariant "NixOS Options")
-              ])
-            ]
-            [
-              (mkDictionaryEntry [
-                "url"
-                (mkVariant "https://repology.org/projects/?search=%s")
-              ])
-              (mkDictionaryEntry [
-                "bang"
-                (mkVariant "!repology")
-              ])
-              (mkDictionaryEntry [
-                "name"
-                (mkVariant "Repology")
-              ])
-            ]
-          ];
+            (mkDictionaryEntry [
+              "url"
+              (mkVariant "https://duckduckgo.com/?q=%s&t=epiphany")
+            ])
+            (mkDictionaryEntry [
+              "bang"
+              (mkVariant "!ddg")
+            ])
+            (mkDictionaryEntry [
+              "name"
+              (mkVariant "DuckDuckGo")
+            ])
+          ]
+          [
+            (mkDictionaryEntry [
+              "url"
+              (mkVariant "https://kagi.com/search?q=%s")
+            ])
+            (mkDictionaryEntry [
+              "bang"
+              (mkVariant "!k")
+            ])
+            (mkDictionaryEntry [
+              "name"
+              (mkVariant "Kagi")
+            ])
+          ]
+          [
+            (mkDictionaryEntry [
+              "url"
+              (mkVariant "https://www.google.com/search?q=%s")
+            ])
+            (mkDictionaryEntry [
+              "bang"
+              (mkVariant "!g")
+            ])
+            (mkDictionaryEntry [
+              "name"
+              (mkVariant "Google")
+            ])
+          ]
+          [
+            (mkDictionaryEntry [
+              "url"
+              (mkVariant "https://context.reverso.net/translation/english-russian/%s")
+            ])
+            (mkDictionaryEntry [
+              "bang"
+              (mkVariant "!rc")
+            ])
+            (mkDictionaryEntry [
+              "name"
+              (mkVariant "ReversoContext")
+            ])
+          ]
+          [
+            (mkDictionaryEntry [
+              "url"
+              (mkVariant "https://search.nixos.org/packages?query=%s")
+            ])
+            (mkDictionaryEntry [
+              "bang"
+              (mkVariant "!nixos-packages")
+            ])
+            (mkDictionaryEntry [
+              "name"
+              (mkVariant "NixOS Packages")
+            ])
+          ]
+          [
+            (mkDictionaryEntry [
+              "url"
+              (mkVariant "https://search.nixos.org/options?query=%s")
+            ])
+            (mkDictionaryEntry [
+              "bang"
+              (mkVariant "!nixos-options")
+            ])
+            (mkDictionaryEntry [
+              "name"
+              (mkVariant "NixOS Options")
+            ])
+          ]
+          [
+            (mkDictionaryEntry [
+              "url"
+              (mkVariant "https://repology.org/projects/?search=%s")
+            ])
+            (mkDictionaryEntry [
+              "bang"
+              (mkVariant "!repology")
+            ])
+            (mkDictionaryEntry [
+              "name"
+              (mkVariant "Repology")
+            ])
+          ]
+        ];
 
-        default-search-engine = "Kagi";
-      };
+      default-search-engine = "Kagi";
+    };
   };
 }

@@ -1,4 +1,10 @@
-{ lib, pkgs, inputs, ... }: {
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+{
   imports = [
     ./secrets.nix
     ./sing-box.nix
@@ -15,7 +21,10 @@
     settings = {
       auto-optimise-store = true;
       # Allow wheel group to use substituters
-      trusted-users = [ "root" "@wheel" ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
     };
 
     gc = {
@@ -119,34 +128,37 @@
 
   environment.defaultPackages = [ ];
 
-  environment.systemPackages = with pkgs; [
-    # system
-    linuxPackages_latest.cpupower
-    glib # gsettings
-    man-pages
-    man-pages-posix
-    sbctl # secure boot keys
-    wayland
+  environment.systemPackages =
+    with pkgs;
+    [
+      # system
+      linuxPackages_latest.cpupower
+      glib # gsettings
+      man-pages
+      man-pages-posix
+      sbctl # secure boot keys
+      wayland
 
-    # cli
-    htop
-    wget
-    tmux
-    inetutils
-    dig
-    pciutils
-    usbutils
-    git
-    neovim
+      # cli
+      htop
+      wget
+      tmux
+      inetutils
+      dig
+      pciutils
+      usbutils
+      git
+      neovim
 
-    # for virtiofs in virt-manager
-    virtiofsd
-  ] ++ (with hunspellDicts; [
-    # Dictionaries have to be installed manually for now
-    en_US
-    ru_RU
-    pl_PL
-  ]);
+      # for virtiofs in virt-manager
+      virtiofsd
+    ]
+    ++ (with hunspellDicts; [
+      # Dictionaries have to be installed manually for now
+      en_US
+      ru_RU
+      pl_PL
+    ]);
 
   # xdg-desktop-portal (screen sharhing, file choosing, etc.)
   #xdg.portal = {

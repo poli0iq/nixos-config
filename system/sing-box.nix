@@ -1,4 +1,5 @@
-{ config, lib, ... }: {
+{ config, lib, ... }:
+{
   # Do not automatically start on boot
   systemd.services.sing-box = {
     wantedBy = lib.mkForce [ ];

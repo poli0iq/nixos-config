@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   imports = [
     ./apps
   ];
@@ -32,15 +33,27 @@
     };
 
     "org/gnome/desktop/input-sources" = {
-      xkb-options = [ "terminate:ctrl_alt_bksp" "grp:caps_toggle" ];
+      xkb-options = [
+        "terminate:ctrl_alt_bksp"
+        "grp:caps_toggle"
+      ];
       sources = [
-        (lib.hm.gvariant.mkTuple [ "xkb" "us+colemak" ])
-        (lib.hm.gvariant.mkTuple [ "xkb" "ru" ])
+        (lib.hm.gvariant.mkTuple [
+          "xkb"
+          "us+colemak"
+        ])
+        (lib.hm.gvariant.mkTuple [
+          "xkb"
+          "ru"
+        ])
       ];
     };
 
     "org/gnome/mutter" = {
-      experimental-features = [ "scale-monitor-framebuffer" "xwayland-native-scaling" ];
+      experimental-features = [
+        "scale-monitor-framebuffer"
+        "xwayland-native-scaling"
+      ];
     };
 
     "org/gnome/settings-daemon/plugins/color" = {
@@ -93,7 +106,10 @@
       switch-to-workspace-10 = [ "<Super>0" ];
       switch-to-workspace-last = [ "<Super>End" ];
 
-      move-to-workspace-1 = [ "<Super><Shift>Home" "<Super><Shift>1" ];
+      move-to-workspace-1 = [
+        "<Super><Shift>Home"
+        "<Super><Shift>1"
+      ];
       move-to-workspace-2 = [ "<Super><Shift>2" ];
       move-to-workspace-3 = [ "<Super><Shift>3" ];
       move-to-workspace-4 = [ "<Super><Shift>4" ];
@@ -131,27 +147,57 @@
       live-alt-tab-backward = [ "" ];
       live-alt-tab-scratch = [ "<Super>minus" ];
       live-alt-tab-scratch-backward = [ "" ];
-      move-down = [ "<Shift><Super>Down" "<Shift><Super>j" ];
-      move-down-workspace = [ "<Shift><Super>Page_Down" "<Shift><Control><Super>j" ];
-      move-left = [ "<Shift><Super>Left" "<Shift><Super>h" ];
-      move-right = [ "<Shift><Super>Right" "<Shift><Super>l" ];
-      move-up = [ "<Shift><Super>Up" "<Shift><Super>k" ];
-      move-up-workspace = [ "<Shift><Super>Page_Up" "<Shift><Control><Super>k" ];
+      move-down = [
+        "<Shift><Super>Down"
+        "<Shift><Super>j"
+      ];
+      move-down-workspace = [
+        "<Shift><Super>Page_Down"
+        "<Shift><Control><Super>j"
+      ];
+      move-left = [
+        "<Shift><Super>Left"
+        "<Shift><Super>h"
+      ];
+      move-right = [
+        "<Shift><Super>Right"
+        "<Shift><Super>l"
+      ];
+      move-up = [
+        "<Shift><Super>Up"
+        "<Shift><Super>k"
+      ];
+      move-up-workspace = [
+        "<Shift><Super>Page_Up"
+        "<Shift><Control><Super>k"
+      ];
       new-window = [ "" ];
       resize-h-dec = [ "" ];
       resize-h-inc = [ "" ];
       resize-w-dec = [ "" ];
       resize-w-inc = [ "" ];
       switch-down = [ "<Super>j" ];
-      switch-down-workspace = [ "<Super>Page_Down" "<Control><Super>j" ];
+      switch-down-workspace = [
+        "<Super>Page_Down"
+        "<Control><Super>j"
+      ];
       switch-last = [ "" ];
-      switch-left = [ "<Super>Left" "<Super>h" ];
+      switch-left = [
+        "<Super>Left"
+        "<Super>h"
+      ];
       switch-next = [ "" ];
       switch-open-window-position = [ "<Super>b" ];
       switch-previous = [ "" ];
-      switch-right = [ "<Super>Right" "<Super>l" ];
+      switch-right = [
+        "<Super>Right"
+        "<Super>l"
+      ];
       switch-up = [ "<Super>k" ];
-      switch-up-workspace = [ "<Super>Page_Up" "<Control><Super>k" ];
+      switch-up-workspace = [
+        "<Super>Page_Up"
+        "<Control><Super>k"
+      ];
       take-window = [ "<Shift><Super>t" ];
       toggle-scratch = [ "<Shift><Super>space" ];
       toggle-scratch-window = [ "<Shift><Super>underscore" ];

@@ -1,47 +1,69 @@
 # init with `nixos-generate-config`
-{ config, lib, modulesPath, ... }:
+{
+  config,
+  lib,
+  modulesPath,
+  ...
+}:
 
 {
-  imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-  boot.initrd.kernelModules = [ "amdgpu" "tpm_crb" ]; # load amdgpu early, load TPM driver
+  boot.initrd.availableKernelModules = [
+    "nvme"
+    "xhci_pci"
+    "usb_storage"
+    "sd_mod"
+    "rtsx_pci_sdmmc"
+  ];
+  boot.initrd.kernelModules = [
+    "amdgpu"
+    "tpm_crb"
+  ]; # load amdgpu early, load TPM driver
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   boot.kernelParams = [ "psmouse.synaptics_intertouch=1" ];
 
-  fileSystems."/" =
-    {
-      device = "/dev/mapper/cryptroot";
-      fsType = "btrfs";
-      options = [ "subvol=root" "noatime" "compress=zstd" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/mapper/cryptroot";
+    fsType = "btrfs";
+    options = [
+      "subvol=root"
+      "noatime"
+      "compress=zstd"
+    ];
+  };
 
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/d89cbed2-e0da-4c27-80aa-98780634effe";
+  boot.initrd.luks.devices."cryptroot".device =
+    "/dev/disk/by-uuid/d89cbed2-e0da-4c27-80aa-98780634effe";
 
-  fileSystems."/home" =
-    {
-      device = "/dev/mapper/cryptroot";
-      fsType = "btrfs";
-      options = [ "subvol=home" "noatime" "compress=zstd" ];
-    };
+  fileSystems."/home" = {
+    device = "/dev/mapper/cryptroot";
+    fsType = "btrfs";
+    options = [
+      "subvol=home"
+      "noatime"
+      "compress=zstd"
+    ];
+  };
 
-  fileSystems."/nix" =
-    {
-      device = "/dev/mapper/cryptroot";
-      fsType = "btrfs";
-      options = [ "subvol=nix" "noatime" "compress=zstd" ];
-    };
+  fileSystems."/nix" = {
+    device = "/dev/mapper/cryptroot";
+    fsType = "btrfs";
+    options = [
+      "subvol=nix"
+      "noatime"
+      "compress=zstd"
+    ];
+  };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/4A48-363A";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/4A48-363A";
+    fsType = "vfat";
+  };
 
   #swapDevices = [
   #  {
