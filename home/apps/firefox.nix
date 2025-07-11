@@ -18,7 +18,6 @@
         bitwarden
         gsconnect
         gnome-shell-integration
-        kagi-search
       ];
 
       userChrome = ''
@@ -42,6 +41,18 @@
           "DuckDuckGo"
         ];
         engines = {
+          Kagi = {
+            urls = [{
+              template = "https://kagi.com/search";
+              params = [
+                { name = "q"; value = "{searchTerms}"; }
+              ];
+            }];
+
+            iconUpdateURL = "https://kagi.com/favicon.ico";
+            definedAliases = [ "@kagi" "@k" ];
+          };
+
           Google = {
             urls = [
               {
