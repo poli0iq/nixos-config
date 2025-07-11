@@ -126,8 +126,7 @@
             urls = [ { template = "https://wiki.nixos.org/index.php?search={searchTerms}"; } ];
 
             name = "NixOS Wiki";
-            icon = "https://wiki.nixos.org/favicon.png";
-            updateInterval = 24 * 60 * 60 * 1000; # every day
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             definedAliases = [ "@nw" ];
           };
 
