@@ -29,34 +29,37 @@
       extraConfig = ''
         ${builtins.readFile "${inputs.firefox-gnome-theme}/configuration/user.js"}
         ${builtins.readFile "${inputs.betterfox}/user.js"}
+
+        # Bring back search autosuggestions that are disabled by betterfox
+        user_pref("browser.search.suggest.enabled", true);
+        user_pref("browser.urlbar.quicksuggest.enabled", true);
       '';
 
       search = {
         force = true;
-        default = "Kagi";
-        privateDefault = "DuckDuckGo";
+        default = "kagi";
+        privateDefault = "duckduckgo";
         order = [
-          "Kagi"
-          "Google"
-          "DuckDuckGo"
+          "kagi"
+          "google"
+          "duckduckgo"
         ];
         engines = {
-          Kagi = {
-            urls = [{
-              template = "https://kagi.com/search";
-              params = [
-                { name = "q"; value = "{searchTerms}"; }
-              ];
-            }];
-
-            iconUpdateURL = "https://kagi.com/favicon.ico";
-            definedAliases = [ "@kagi" "@k" ];
-          };
-
-          Google = {
+          kagi = {
             urls = [
               {
-                template = "https://www.google.com/search";
+                template = "https://kagi.com/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+              {
+                # Suggestions URL
+                type = "application/x-suggestions+json";
+                template = "https://kagi.com/api/autosuggest";
                 params = [
                   {
                     name = "q";
@@ -66,14 +69,20 @@
               }
             ];
 
-            iconUpdateURL = "https://www.google.com/favicon.ico";
+            name = "Kagi";
+            icon = "https://kagi.com/favicon.ico";
             definedAliases = [
-              "@google"
-              "@g"
+              "@kagi"
+              "@k"
             ];
           };
 
-          "Nix Packages" = {
+          google = {
+            # Builtin engines only support specifying one additional alias
+            metaData.alias = "@g";
+          };
+
+          nix-packages = {
             urls = [
               {
                 template = "https://search.nixos.org/packages";
@@ -90,11 +99,12 @@
               }
             ];
 
+            name = "Nix Packages";
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             definedAliases = [ "@np" ];
           };
 
-          "Nix Options" = {
+          nixos-options = {
             urls = [
               {
                 template = "https://search.nixos.org/options";
@@ -107,16 +117,22 @@
               }
             ];
 
+            name = "NixOS Options";
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             definedAliases = [ "@no" ];
           };
 
-          "NixOS Wiki" = {
+          nixos-wiki = {
             urls = [ { template = "https://wiki.nixos.org/index.php?search={searchTerms}"; } ];
-            iconUpdateURL = "https://wiki.nixos.org/favicon.png";
+
+            name = "NixOS Wiki";
+            icon = "https://wiki.nixos.org/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = [ "@nw" ];
           };
+
+          # Disable bullshit
+          bing.metaData.hidden = true;
         };
       };
     };
