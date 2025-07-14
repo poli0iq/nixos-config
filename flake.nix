@@ -107,7 +107,7 @@
                 ./home
                 ./home/gnome
                 nixvim.homeManagerModules.nixvim
-                nix-index-database.hmModules.nix-index
+                nix-index-database.homeModules.nix-index
                 nur.modules.homeManager.default
               ] ++ modules;
             };
