@@ -13,6 +13,9 @@
       { package = vitals; }
       { package = blur-my-shell; }
       { package = light-style; }
+      { package = windownavigator; }
+      { package = middle-click-to-close-in-overview; }
+      { package = caffeine; }
     ];
   };
 
