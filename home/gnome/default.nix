@@ -8,21 +8,11 @@
     enable = true;
 
     extensions = with pkgs.gnomeExtensions; [
-      {
-        package = paperwm;
-      }
-      {
-        package = gsconnect;
-      }
-      {
-        package = vitals;
-      }
-      {
-        package = blur-my-shell;
-      }
-      {
-        package = light-style;
-      }
+      { package = paperwm; }
+      { package = gsconnect; }
+      { package = vitals; }
+      { package = blur-my-shell; }
+      { package = light-style; }
     ];
   };
 
