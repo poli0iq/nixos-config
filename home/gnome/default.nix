@@ -28,7 +28,6 @@
     "org/gnome/desktop/input-sources" = {
       xkb-options = [
         "terminate:ctrl_alt_bksp"
-        "grp:caps_toggle"
       ];
       sources = [
         (lib.hm.gvariant.mkTuple [
@@ -37,7 +36,7 @@
         ])
         (lib.hm.gvariant.mkTuple [
           "xkb"
-          "ru"
+          "ru+rulemak"
         ])
       ];
     };
