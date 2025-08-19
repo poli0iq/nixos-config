@@ -19,6 +19,8 @@
     showtime
     # Matrix client
     fractal
+    # Screenshot editor
+    gradia
   ];
 
   xdg.mimeApps = {
