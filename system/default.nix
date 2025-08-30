@@ -229,6 +229,9 @@
 
     # Old pdf viewer, I use papers instead
     evince
+
+    # Old terminal, I use Ptyxis
+    kgx
   ];
 
   # Allow non-free packages
