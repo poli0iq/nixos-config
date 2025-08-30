@@ -4,6 +4,13 @@
   programs.firefox = {
     enable = true;
 
+    package = pkgs.firefox.override {
+      nativeMessagingHosts = with pkgs; [
+        gnomeExtensions.gsconnect
+        gnome-browser-connector
+      ];
+    };
+
     #settings = {
     #  "privacy.resistFingerprinting" = false;
     #  "privacy.fingerprintingProtection" = false;
