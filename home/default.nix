@@ -6,7 +6,6 @@
     ./nixvim
 
     ./starship
-    ./zsh
 
     ./apps
   ];
