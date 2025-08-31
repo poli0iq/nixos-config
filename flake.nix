@@ -106,7 +106,7 @@
               modules = [
                 ./home
                 ./home/gnome
-                nixvim.homeManagerModules.nixvim
+                nixvim.homeModules.nixvim
                 nix-index-database.homeModules.nix-index
                 nur.modules.homeManager.default
               ] ++ modules;
