@@ -1,8 +1,12 @@
 { pkgs, lib, ... }:
 {
   home.packages = with pkgs; [
-    # CalDAV-compatible personal task manager
-    errands
+    # CalDAV-compatible personal task manager.
+    # There are also errands and endeavour,
+    # but the first one is undergoing a C rewrite (wtf),
+    # and the second one is only recently active again,
+    # 3 years since the last release
+    planify
     # News reader
     newsflash
     # Torrent client
