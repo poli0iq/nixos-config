@@ -194,7 +194,7 @@
     enable = true;
     settings = {
       email = "poli0iq@disroot.org";
-      pinentry = pkgs.pinentry.gnome3;
+      pinentry = pkgs.pinentry-gnome3;
     };
   };
 
