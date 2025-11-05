@@ -230,7 +230,7 @@
     evince
 
     # Old terminal, I use Ptyxis
-    kgx
+    gnome-console
   ];
 
   # Allow non-free packages
