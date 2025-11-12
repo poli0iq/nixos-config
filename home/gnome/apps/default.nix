@@ -25,6 +25,8 @@
     fractal
     # Screenshot editor
     gradia
+    # Pomodoro timer
+    gnome-solanum
   ];
 
   xdg.mimeApps = {
