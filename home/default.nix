@@ -76,12 +76,16 @@
 
   programs.git = {
     enable = true;
-    userName = "Polina Vishneva";
-    userEmail = "poli@0iq.dev";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Polina Vishneva";
+        email = "poli@0iq.dev";
+      };
+
       rebase = {
         autosquash = true;
       };
+
       sendemail = {
         smtpserver = "0iq.dev";
         smtpuser = "poli@0iq.dev";
