@@ -221,12 +221,6 @@
   services.desktopManager.gnome.enable = true;
 
   environment.gnome.excludePackages = with pkgs; [
-    # Old video player, will be replaced with showtime in GNOME 49
-    totem
-
-    # Old pdf viewer, I use papers instead
-    evince
-
     # Old terminal, I use Ptyxis
     gnome-console
   ];
