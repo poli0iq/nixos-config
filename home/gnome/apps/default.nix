@@ -15,10 +15,6 @@
     dialect
     # Notes app with Nextcloud Notes sync
     iotas
-    # New pdf viewer
-    papers
-    # New video player
-    showtime
     # Matrix client
     fractal
     # Screenshot editor
