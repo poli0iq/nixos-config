@@ -15,8 +15,6 @@
     dialect
     # Notes app with Nextcloud Notes sync
     iotas
-    # Terminal app
-    ptyxis
     # New pdf viewer
     papers
     # New video player

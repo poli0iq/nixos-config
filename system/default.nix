@@ -126,8 +126,6 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  environment.defaultPackages = [ ];
-
   environment.systemPackages =
     with pkgs;
     [
@@ -231,6 +229,11 @@
 
     # Old terminal, I use Ptyxis
     gnome-console
+  ];
+
+  environment.defaultPackages = with pkgs; [
+    # Better terminal for gnome
+    ptyxis
   ];
 
   # Allow non-free packages
