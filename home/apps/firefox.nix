@@ -92,17 +92,7 @@
           nix-packages = {
             urls = [
               {
-                template = "https://search.nixos.org/packages";
-                params = [
-                  {
-                    name = "type";
-                    value = "packages";
-                  }
-                  {
-                    name = "query";
-                    value = "{searchTerms}";
-                  }
-                ];
+                template = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}";
               }
             ];
 
@@ -114,13 +104,7 @@
           nixos-options = {
             urls = [
               {
-                template = "https://search.nixos.org/options";
-                params = [
-                  {
-                    name = "query";
-                    value = "{searchTerms}";
-                  }
-                ];
+                template = "https://search.nixos.org/options?channel=unstable&query={searchTerms}";
               }
             ];
 
@@ -132,11 +116,11 @@
           home-manager-options = {
             urls = [
               {
-                template = "https://home-manager-options.extranix.com/";
+                template = "https://home-manager-options.extranix.com/?release=master";
                 type = "searchform";
               }
               {
-                template = "https://home-manager-options.extranix.com/?query={searchTerms}";
+                template = "https://home-manager-options.extranix.com/?release=master&query={searchTerms}";
               }
             ];
 
