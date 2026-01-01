@@ -150,6 +150,9 @@
 
       # for virtiofs in virt-manager
       virtiofsd
+
+      # Needed for gsconnect extension
+      nautilus-python
     ]
     ++ (with hunspellDicts; [
       # Dictionaries have to be installed manually for now
