@@ -139,6 +139,7 @@
 
           # Disable bullshit
           bing.metaData.hidden = true;
+          perplexity.metaData.hidden = true;
         };
       };
     };
