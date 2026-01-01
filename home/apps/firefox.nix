@@ -137,6 +137,33 @@
             definedAliases = [ "@nw" ];
           };
 
+          wiktionary-en = {
+            urls = [
+              {
+                template = "https://en.wiktionary.org/wiki/Special:Search";
+                type = "searchform";
+              }
+              {
+                template = "https://en.wiktionary.org/w/index.php?title=Special:Search&search={searchTerms}";
+              }
+              {
+                template = "https://en.wiktionary.org/w/api.php?action=opensearch&search={searchTerms}&namespace=0";
+                type = "application/x-suggestions+json";
+              }
+              {
+                template = "https://en.wiktionary.org/w/api.php?action=opensearch&format=xml&search={searchTerms}&namespace=0";
+                type = "application/x-suggestions+xml";
+              }
+            ];
+
+            name = "Wiktionary (en)";
+            icon = "https://en.wiktionary.org/favicon.ico";
+            definedAliases = [
+              "@wiktionary"
+              "@wt"
+            ];
+          };
+
           # Disable bullshit
           bing.metaData.hidden = true;
           perplexity.metaData.hidden = true;
