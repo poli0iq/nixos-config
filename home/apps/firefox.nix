@@ -129,6 +129,25 @@
             definedAliases = [ "@no" ];
           };
 
+          home-manager-options = {
+            urls = [
+              {
+                template = "https://home-manager-options.extranix.com/";
+                type = "searchform";
+              }
+              {
+                template = "https://home-manager-options.extranix.com/?query={searchTerms}";
+              }
+            ];
+
+            name = "Home Manager Options";
+            icon = "https://home-manager-options.extranix.com/images/favicon.png";
+            definedAliases = [
+              "@homemanager"
+              "@hm"
+            ];
+          };
+
           nixos-wiki = {
             urls = [ { template = "https://wiki.nixos.org/index.php?search={searchTerms}"; } ];
 
