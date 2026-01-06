@@ -11,12 +11,6 @@
       ];
     };
 
-    #settings = {
-    #  "privacy.resistFingerprinting" = false;
-    #  "privacy.fingerprintingProtection" = false;
-    #  "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme";
-    #};
-
     profiles.default = {
       isDefault = true;
 
@@ -26,6 +20,15 @@
         gsconnect
         gnome-shell-integration
       ];
+
+      settings = {
+        # STOP FUCKING HTML ENCODING CYRILLIC TEXT ON URL COPY
+        "browser.urlbar.decodeURLsOnCopy" = true;
+
+        #"privacy.resistFingerprinting" = false;
+        #"privacy.fingerprintingProtection" = false;
+        #"privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme";
+      };
 
       userChrome = ''
         @import "firefox-gnome-theme/userChrome.css";
