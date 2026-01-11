@@ -29,6 +29,7 @@
     file
     xdg-utils
     wl-clipboard
+    android-tools
 
     # dev
     gcc
