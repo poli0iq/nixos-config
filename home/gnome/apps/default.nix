@@ -21,6 +21,8 @@
     gradia
     # Pomodoro timer
     gnome-solanum
+    # Email client (I wish there was a better one)
+    geary
   ];
 
   xdg.mimeApps = {
