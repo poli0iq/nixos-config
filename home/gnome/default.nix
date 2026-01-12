@@ -16,6 +16,7 @@
       { package = windownavigator; }
       { package = middle-click-to-close-in-overview; }
       { package = caffeine; }
+      { package = appindicator; }
     ];
   };
 
