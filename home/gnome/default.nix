@@ -39,6 +39,9 @@
           "ru+rulemak"
         ])
       ];
+
+      # Required for ru+rulemak to work at all
+      show-all-sources = true;
     };
 
     "org/gnome/mutter" = {
