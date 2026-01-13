@@ -61,6 +61,10 @@
     # useXkbConfig = true; # use xkbOptions in tty.
   };
 
+  # Configure keymap in X11 (in my case, for GDM)
+  services.xserver.xkb.layout = "us+colemak";
+  # services.xserver.xkb.options = "eurosign:e,caps:escape";
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
