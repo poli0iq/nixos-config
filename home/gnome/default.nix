@@ -48,6 +48,7 @@
     "org/gnome/mutter" = {
       experimental-features = [
         "scale-monitor-framebuffer"
+        "variable-refresh-rate"
         "xwayland-native-scaling"
       ];
     };
