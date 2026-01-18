@@ -25,6 +25,45 @@
     geary
   ];
 
+  # TODO: remove once upgraded upstream
+  nixpkgs.overlays = [
+    (final: prev: {
+      geary = prev.geary.overrideAttrs (old: {
+        version = "0-unstable-2025-12-15";
+
+        src = pkgs.fetchFromGitLab {
+          domain = "gitlab.gnome.org";
+          owner = "GNOME";
+          repo = "geary";
+          rev = "be3ed978e2ad77c1197ccb5a6e887ffaeec12057";
+          hash = "sha256-6iOv+DOxfWVojXrsH4tV3yL9GUTVvWFOp2SErcWhtW8=";
+        };
+
+        nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.cmake ];
+
+        buildInputs =
+          (lib.lists.subtractLists (with pkgs; [
+            gcr
+            gtk3
+            webkitgtk_4_1
+          ]) old.buildInputs)
+          ++ (with pkgs; [
+            gtk4
+            webkitgtk_6_0
+            gcr_4
+            libspelling
+            libadwaita
+            libpeas2
+          ]);
+
+        postPatch = lib.replaceString ''
+          substituteInPlace meson.build \
+            --replace-fail "appstream_glib = dependency('appstream-glib', version: '>=0.7.10')" ""
+        '' "" old.postPatch;
+      });
+    })
+  ];
+
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
