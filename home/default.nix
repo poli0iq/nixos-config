@@ -8,6 +8,8 @@
     ./starship
 
     ./apps
+
+    ./solaar.nix
   ];
 
   home = {
