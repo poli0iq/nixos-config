@@ -73,6 +73,12 @@
   # Controller support
   hardware.steam-hardware.enable = true;
 
+  # Solaar
+  hardware.logitech.wireless = {
+    enable = true;
+    enableGraphical = true;
+  };
+
   # Enable sound.
   # No real need to save the state on reboot
   #sound.enable = true;
