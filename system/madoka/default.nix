@@ -37,6 +37,11 @@
     pkiBundle = "/var/lib/sbctl";
   };
 
+  services.udev.extraRules = ''
+    # Enable wakeup on bluetooth devices activity
+    ACTION=="add", SUBSYSTEM=="pci", ENV{DRIVER}=="btintel_pcie", ATTR{power/wakeup}="enabled"
+  '';
+
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
