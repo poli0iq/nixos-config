@@ -17,6 +17,23 @@
       { package = middle-click-to-close-in-overview; }
       { package = caffeine; }
       { package = appindicator; }
+
+      {
+        # TODO: remove once https://github.com/NixOS/nixpkgs/pull/469919 is merged
+        package = copyous.overrideAttrs (old: {
+          buildInputs = with pkgs; [
+            libgda6
+            gsound
+          ];
+
+          preInstall = ''
+            sed -i "1i import GIRepository from 'gi://GIRepository';\nGIRepository.Repository.dup_default().prepend_search_path('${pkgs.libgda6}/lib/girepository-1.0');\nGIRepository.Repository.dup_default().prepend_search_path('${pkgs.gsound}/lib/girepository-1.0');\n" lib/preferences/dependencies/dependencies.js
+            sed -i "1i import GIRepository from 'gi://GIRepository';\nGIRepository.Repository.dup_default().prepend_search_path('${pkgs.libgda6}/lib/girepository-1.0');\n" lib/misc/db.js
+            sed -i "1i import GIRepository from 'gi://GIRepository';\nGIRepository.Repository.dup_default().prepend_search_path('${pkgs.gsound}/lib/girepository-1.0');\n" lib/common/sound.js
+            sed -i "1i import GIRepository from 'gi://GIRepository';\nGIRepository.Repository.dup_default().prepend_search_path('${pkgs.gsound}/lib/girepository-1.0');\n" lib/preferences/general/feedbackSettings.js
+          '';
+        });
+      }
     ];
   };
 
