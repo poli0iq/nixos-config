@@ -25,6 +25,9 @@
         # STOP FUCKING HTML ENCODING CYRILLIC TEXT ON URL COPY
         "browser.urlbar.decodeURLsOnCopy" = true;
 
+        # The default is 2 (which means "only if inside flatpak")
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+
         #"privacy.resistFingerprinting" = false;
         #"privacy.fingerprintingProtection" = false;
         #"privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme";
