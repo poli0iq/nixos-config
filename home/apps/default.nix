@@ -29,7 +29,13 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "adwaita";
+    platformTheme = {
+      name = "xdgdesktopportal";
+      package = with pkgs; [
+        qadwaitadecorations
+        qadwaitadecorations-qt6
+      ];
+    };
     style.name = "adwaita-dark";
   };
 
