@@ -239,6 +239,8 @@
   environment.defaultPackages = with pkgs; [
     # Better terminal for gnome
     ptyxis
+    # For desktop files
+    xdg-terminal-exec
   ];
 
   # Allow non-free packages
