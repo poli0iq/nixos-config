@@ -243,6 +243,11 @@
     xdg-terminal-exec
   ];
 
+  programs.nautilus-open-any-terminal = {
+    enable = true;
+    terminal = "ptyxis";
+  };
+
   # Allow non-free packages
   nixpkgs.config.allowUnfree = true;
 
