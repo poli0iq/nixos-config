@@ -13,6 +13,7 @@
     # fonts
     font-awesome
     dejavu_fonts
+    nerd-fonts.symbols-only
   ];
 
   xdg.mimeApps = {

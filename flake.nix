@@ -17,8 +17,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
+    nvf = {
+      url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -48,7 +48,7 @@
       nixpkgs,
       home-manager,
       lanzaboote,
-      nixvim,
+      nvf,
       agenix,
       nix-index-database,
       nur,
@@ -106,7 +106,7 @@
               modules = [
                 ./home
                 ./home/gnome
-                nixvim.homeModules.nixvim
+                nvf.homeManagerModules.default
                 nix-index-database.homeModules.nix-index
                 nur.modules.homeManager.default
               ] ++ modules;

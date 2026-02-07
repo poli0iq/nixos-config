@@ -3,7 +3,7 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./nixvim
+    ./nvf
 
     ./starship
 
