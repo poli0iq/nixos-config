@@ -39,7 +39,7 @@
 
   services.udev.extraRules = ''
     # Enable wakeup on bluetooth devices activity
-    ACTION=="add", SUBSYSTEM=="pci", ENV{DRIVER}=="btintel_pcie", ATTR{power/wakeup}="enabled"
+    ACTION=="bind", SUBSYSTEM=="pci", DRIVER=="btintel_pcie", ATTR{power/wakeup}="enabled"
   '';
 
   # console = {
