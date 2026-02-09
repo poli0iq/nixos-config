@@ -22,6 +22,17 @@
       ];
 
       settings = {
+        # GNOME fonts
+        "font.default.x-western" = "sans-serif";
+        "font.name.sans-serif.x-western" = "Adwaita Sans";
+        "font.name.serif.x-western" = "DejaVu Serif";
+        "font.name.monospace.x-western" = "Adwaita Mono";
+
+        "font.default.x-cyrillic" = "sans-serif";
+        "font.name.sans-serif.x-cyrillic" = "Adwaita Sans";
+        "font.name.serif.x-cyrillic" = "DejaVu Serif";
+        "font.name.monospace.x-cyrillic" = "Adwaita Mono";
+
         # STOP FUCKING HTML ENCODING CYRILLIC TEXT ON URL COPY
         "browser.urlbar.decodeURLsOnCopy" = true;
 
