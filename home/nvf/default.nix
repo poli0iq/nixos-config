@@ -35,6 +35,17 @@
             formatterMode = "typstyle";
             exportPdf = "onSave";
           };
+
+          clangd.cmd = lib.mkForce [
+            "${pkgs.clang-tools}/bin/clangd"
+            # Pick up the headers from whatever compiler we have.
+            # Fixes diagnostics in devshells in most cases.
+            # As a side effect, nix's clangd wrapper disables populating C_INCLUDE_PATH.
+            # Therefore clangd now requires clang in PATH to work without compile_commands.json.
+            # Maybe a better solution would be to add CLANGD_FLAGS support to the nixpkgs's wrapper,
+            # and export CLANGD_FLAGS in all the devshells where it's required.
+            "--query-driver=**"
+          ];
         };
       };
 
