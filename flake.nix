@@ -76,11 +76,6 @@
             lanzaboote.nixosModules.lanzaboote
           ];
 
-          sayaka = makeNixosConfiguration "sayaka" [
-            ./system/sayaka
-            lanzaboote.nixosModules.lanzaboote
-          ];
-
           homura = makeNixosConfiguration "homura" [
             ./system/homura
             lanzaboote.nixosModules.lanzaboote
@@ -112,8 +107,6 @@
           "poli" = makeHomeConfiguration [ ];
 
           "poli@madoka" = makeHomeConfiguration [ ];
-
-          "poli@sayaka" = makeHomeConfiguration [ ];
 
           "poli@homura" = makeHomeConfiguration [ ];
 
