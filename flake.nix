@@ -22,11 +22,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,7 +44,6 @@
       home-manager,
       lanzaboote,
       nvf,
-      agenix,
       nix-index-database,
       nur,
       ...
@@ -80,19 +74,16 @@
           madoka = makeNixosConfiguration "madoka" [
             ./system/madoka
             lanzaboote.nixosModules.lanzaboote
-            agenix.nixosModules.age
           ];
 
           sayaka = makeNixosConfiguration "sayaka" [
             ./system/sayaka
             lanzaboote.nixosModules.lanzaboote
-            agenix.nixosModules.age
           ];
 
           homura = makeNixosConfiguration "homura" [
             ./system/homura
             lanzaboote.nixosModules.lanzaboote
-            agenix.nixosModules.age
           ];
         };
 
