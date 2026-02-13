@@ -85,6 +85,11 @@
             ./system/homura
             lanzaboote.nixosModules.lanzaboote
           ];
+
+          mami = makeNixosConfiguration "mami" [
+            ./system/mami
+            lanzaboote.nixosModules.lanzaboote
+          ];
         };
 
       homeConfigurations =
@@ -111,6 +116,8 @@
           "poli@sayaka" = makeHomeConfiguration [ ];
 
           "poli@homura" = makeHomeConfiguration [ ];
+
+          "poli@mami" = makeHomeConfiguration [ ];
         };
     };
 }
