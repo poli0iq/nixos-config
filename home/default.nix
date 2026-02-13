@@ -34,7 +34,7 @@
     android-tools
 
     # dev
-    gcc
+    clang
     gnumake
     cargo
     rustc
