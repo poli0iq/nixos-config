@@ -33,25 +33,16 @@
   };
 
   networking = {
-    # Pick only one of the below networking options.
-    # wireless.enable = true;
     networkmanager.enable = true;
 
-    # Open ports in the firewall.
     # firewall.allowedTCPPorts = [ ... ];
     # firewall.allowedUDPPorts = [ ... ];
 
     firewall.enable = false;
-
-    # Configure network proxy if necessary
-    # proxy.default = "http://user:password@proxy:port/";
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   };
 
-  # Set your time zone.
   #time.timeZone = "Europe/Moscow";
 
-  # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
   console = {
     #font = "Lat2-Terminus16";
@@ -59,7 +50,7 @@
     # useXkbConfig = true; # use xkbOptions in tty.
   };
 
-  # Configure keymap in X11 (in my case, for GDM)
+  # Configure keymap (in my case primarily for GDM)
   services.xserver.xkb.layout = "us+colemak";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
@@ -77,7 +68,6 @@
     enableGraphical = true;
   };
 
-  # Enable sound.
   # No real need to save the state on reboot
   #sound.enable = true;
   services.pulseaudio.enable = false;
@@ -98,9 +88,7 @@
     shell = pkgs.fish;
   };
 
-  # List services that you want to enable:
   services = {
-    # Enable the OpenSSH daemon.
     openssh.enable = true;
 
     dbus = {
@@ -118,11 +106,6 @@
 
     flatpak.enable = true;
   };
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -169,22 +152,6 @@
       pl_PL
     ]);
 
-  # xdg-desktop-portal (screen sharing, file choosing, etc.)
-  #xdg.portal = {
-  #  enable = true;
-
-  #  wlr.enable = true;
-  #  configPackages = with pkgs; [
-  #    xdg-desktop-portal-wlr
-  #  ];
-
-  #  # gtk portal needed to make gtk apps happy
-  #  extraPortals = with pkgs; [
-  #    xdg-desktop-portal-gtk
-  #    xdg-desktop-portal-kde
-  #  ];
-  #};
-
   security = {
     polkit.enable = true;
 
@@ -195,10 +162,6 @@
   };
 
   programs = {
-    # Some programs need SUID wrappers, can be configured further or are
-    # started in user sessions.
-    # programs.mtr.enable = true;
-
     fish.enable = true;
 
     dconf.enable = true;
