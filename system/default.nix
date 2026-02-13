@@ -169,7 +169,7 @@
       pl_PL
     ]);
 
-  # xdg-desktop-portal (screen sharhing, file choosing, etc.)
+  # xdg-desktop-portal (screen sharing, file choosing, etc.)
   #xdg.portal = {
   #  enable = true;
 

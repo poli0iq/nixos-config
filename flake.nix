@@ -65,7 +65,8 @@
                 )
 
                 ./system
-              ] ++ modules;
+              ]
+              ++ modules;
             };
         in
         {
@@ -95,7 +96,8 @@
                 nvf.homeManagerModules.default
                 nix-index-database.homeModules.nix-index
                 nur.modules.homeManager.default
-              ] ++ modules;
+              ]
+              ++ modules;
             };
         in
         {

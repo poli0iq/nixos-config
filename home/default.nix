@@ -139,38 +139,37 @@
 
   programs.htop = {
     enable = true;
-    settings =
-      {
-        color_scheme = 0;
-        cpu_count_from_one = 0;
-        delay = 15;
+    settings = {
+      color_scheme = 0;
+      cpu_count_from_one = 0;
+      delay = 15;
 
-        highlight_base_name = 1;
-        highlight_megabytes = 1;
-        highlight_threads = 1;
+      highlight_base_name = 1;
+      highlight_megabytes = 1;
+      highlight_threads = 1;
 
-        show_cpu_frequency = 1;
-        show_cpu_temperature = 1;
-      }
-      // (
-        with config.lib.htop;
-        leftMeters [
-          (bar "AllCPUs2")
-        ]
-      )
-      // (
-        with config.lib.htop;
-        rightMeters [
-          (bar "Memory")
-          (bar "Swap")
-          (text "Tasks")
-          (text "LoadAverage")
-          (text "Uptime")
-          (text "Systemd")
-          (text "DiskIO")
-          (text "NetworkIO")
-        ]
-      );
+      show_cpu_frequency = 1;
+      show_cpu_temperature = 1;
+    }
+    // (
+      with config.lib.htop;
+      leftMeters [
+        (bar "AllCPUs2")
+      ]
+    )
+    // (
+      with config.lib.htop;
+      rightMeters [
+        (bar "Memory")
+        (bar "Swap")
+        (text "Tasks")
+        (text "LoadAverage")
+        (text "Uptime")
+        (text "Systemd")
+        (text "DiskIO")
+        (text "NetworkIO")
+      ]
+    );
   };
 
   home.stateVersion = "23.05";

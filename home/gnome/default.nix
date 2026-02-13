@@ -143,10 +143,10 @@
     "org/gnome/shell/extensions/paperwm" = {
       disable-scratch-in-overview = true;
       gesture-enabled = false;
-      # Resture gnome workspace pill
+      # Restore gnome workspace pill
       show-workspace-indicator = false;
       # Mimic "smart gaps" but manually
-      maximize-wihtin-tiling = false;
+      maximize-within-tiling = false;
       # Leave only right and down
       open-window-position-option-left = false;
       window-gap = 10;
