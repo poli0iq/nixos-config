@@ -195,6 +195,8 @@
   environment.gnome.excludePackages = with pkgs; [
     # Old terminal, I use Ptyxis
     gnome-console
+    # Very old (gtk3), replacement: Field Monitor
+    gnome-connections
   ];
 
   environment.defaultPackages = with pkgs; [
@@ -202,6 +204,8 @@
     ptyxis
     # For desktop files
     xdg-terminal-exec
+    # Spice/VNC/RDP client
+    field-monitor
   ];
 
   programs.nautilus-open-any-terminal = {
