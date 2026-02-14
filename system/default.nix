@@ -197,6 +197,8 @@
     gnome-console
     # Very old (gtk3), replacement: Field Monitor
     gnome-connections
+    # Too plain, replacement: Resources
+    gnome-system-monitor
   ];
 
   environment.defaultPackages = with pkgs; [
@@ -206,6 +208,8 @@
     xdg-terminal-exec
     # Spice/VNC/RDP client
     field-monitor
+    # Better system monitor
+    resources
   ];
 
   programs.nautilus-open-any-terminal = {
