@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   inputs,
@@ -159,6 +160,28 @@
 
     # Needed for PipeWire
     rtkit.enable = true;
+
+    # Skip fprintd when the laptop lid is closed
+    # (based on https://github.com/NixOS/nixpkgs/pull/342676)
+    pam.services =
+      let
+        lidCheck = pkgs.writeShellScript "pam-lid-check" ''
+          ${pkgs.gnugrep}/bin/grep -q open /proc/acpi/button/lid/*/state
+        '';
+        fprintdLidCheck = {
+          order = 11399;
+          control = "[success=ignore default=1]";
+          modulePath = "${pkgs.linux-pam}/lib/security/pam_exec.so";
+          args = [
+            "quiet"
+            "${lidCheck}"
+          ];
+        };
+      in
+      lib.mkIf config.services.fprintd.enable {
+        sudo.rules.auth.fprintd-lid-check = fprintdLidCheck;
+        polkit-1.rules.auth.fprintd-lid-check = fprintdLidCheck;
+      };
   };
 
   programs = {
