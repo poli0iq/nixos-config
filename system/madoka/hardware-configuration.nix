@@ -30,11 +30,14 @@
       "subvol=root"
       "compress=zstd"
       "noatime"
+      "discard=async"
     ];
   };
 
-  boot.initrd.luks.devices."cryptroot".device =
-    "/dev/disk/by-uuid/c5c46b4c-1b0e-4220-8d96-a0fe2753d3fa";
+  boot.initrd.luks.devices."cryptroot" = {
+    device = "/dev/disk/by-uuid/c5c46b4c-1b0e-4220-8d96-a0fe2753d3fa";
+    allowDiscards = true;
+  };
 
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/e830cdb7-84fb-4610-8f10-3d99208df47f";
@@ -43,6 +46,7 @@
       "subvol=home"
       "compress=zstd"
       "noatime"
+      "discard=async"
     ];
   };
 
@@ -53,6 +57,7 @@
       "subvol=nix"
       "compress=zstd"
       "noatime"
+      "discard=async"
     ];
   };
 
