@@ -28,11 +28,13 @@
   fileSystems."/" = {
     device = "/dev/mapper/cryptroot";
     fsType = "btrfs";
-    options = [ "compress=zstd,noatime,subvol=root" ];
+    options = [ "compress=zstd,noatime,discard=async,subvol=root" ];
   };
 
-  boot.initrd.luks.devices."cryptroot".device =
-    "/dev/disk/by-uuid/6920bcd6-daa5-445a-9775-e079427e7210";
+  boot.initrd.luks.devices."cryptroot" = {
+    device = "/dev/disk/by-uuid/6920bcd6-daa5-445a-9775-e079427e7210";
+    allowDiscards = true;
+  };
 
   # ???
   #fileSystems."/" =
@@ -44,13 +46,13 @@
   fileSystems."/home" = {
     device = "/dev/mapper/cryptroot";
     fsType = "btrfs";
-    options = [ "compress=zstd,noatime,subvol=home" ];
+    options = [ "compress=zstd,noatime,discard=async,subvol=home" ];
   };
 
   fileSystems."/nix" = {
     device = "/dev/mapper/cryptroot";
     fsType = "btrfs";
-    options = [ "compress=zstd,noatime,subvol=nix" ];
+    options = [ "compress=zstd,noatime,discard=async,subvol=nix" ];
   };
 
   fileSystems."/boot" = {
