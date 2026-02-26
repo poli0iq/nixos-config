@@ -216,6 +216,8 @@
   services.desktopManager.gnome.enable = true;
 
   environment.gnome.excludePackages = with pkgs; [
+    # I know how to use gnome thanks
+    gnome-tour
     # Old terminal, I use Ptyxis
     gnome-console
     # Very old (gtk3), replacement: Field Monitor
