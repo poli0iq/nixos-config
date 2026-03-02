@@ -69,10 +69,6 @@
     enableGraphical = true;
   };
 
-  # No real need to save the state on reboot
-  #sound.enable = true;
-  services.pulseaudio.enable = false;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.poli = {
     isNormalUser = true;

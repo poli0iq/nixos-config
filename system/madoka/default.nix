@@ -42,6 +42,10 @@
     ACTION=="bind", SUBSYSTEM=="pci", DRIVER=="btintel_pcie", ATTR{power/wakeup}="enabled"
   '';
 
+  # alsa-ucm-conf lacks DRC setup in EnableSequence, so it's disabled by default.
+  # It's present in BootSequence though
+  hardware.alsa.enablePersistence = true;
+
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
