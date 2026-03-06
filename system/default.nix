@@ -114,6 +114,9 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # Enable all SysRq functions
+  boot.kernel.sysctl."kernel.sysrq" = 1;
+
   environment.systemPackages =
     with pkgs;
     [
