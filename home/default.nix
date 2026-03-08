@@ -205,7 +205,8 @@
   programs.rbw = {
     enable = true;
     settings = {
-      email = "poli0iq@disroot.org";
+      base_url = "https://bw.stupid.fish";
+      email = "poli@0iq.dev";
       pinentry = pkgs.pinentry-gnome3;
     };
   };
