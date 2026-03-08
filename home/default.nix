@@ -187,6 +187,10 @@
       set fish_greeting
 
       set fish_key_bindings fish_vi_key_bindings
+
+      # Unfuck Shift-Tab (fzf integration remaps it)
+      bind --erase shift-tab
+      bind -M insert --erase shift-tab
     '';
 
     functions = {
