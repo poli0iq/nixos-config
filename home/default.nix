@@ -89,6 +89,8 @@
         autosquash = true;
       };
 
+      init.defaultBranch = "main";
+
       sendemail = {
         smtpserver = "0iq.dev";
         smtpuser = "poli@0iq.dev";
