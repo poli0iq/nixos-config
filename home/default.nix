@@ -72,7 +72,6 @@
 
   programs.fzf = {
     enable = true;
-    enableZshIntegration = true;
   };
 
   services.ssh-agent.enable = true;
