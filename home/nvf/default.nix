@@ -74,7 +74,7 @@
 
         fidget-nvim = {
           enable = true;
-          # Conflicts with backgroud transparency
+          # Conflicts with background transparency
           setupOpts.notification.window.winblend = 0;
         };
 
@@ -128,7 +128,7 @@
 
       startPlugins = with pkgs.vimPlugins; [
         adwaita-nvim
-        vim-nix
+        vim-nix # required for correct indentation
       ];
 
       luaConfigRC.adwaita = ''
