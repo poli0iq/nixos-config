@@ -66,6 +66,7 @@
         python.enable = true;
         haskell.enable = true;
         typst.enable = true;
+        bash.enable = true;
       };
 
       visuals = {
