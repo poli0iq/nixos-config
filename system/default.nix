@@ -75,9 +75,7 @@
       "video"
       "audio"
       "networkmanager"
-      "adbusers"
       "wireshark"
-      "docker"
       "dialout"
     ];
     shell = pkgs.fish;
