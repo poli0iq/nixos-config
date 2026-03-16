@@ -38,8 +38,6 @@
 
     # firewall.allowedTCPPorts = [ ... ];
     # firewall.allowedUDPPorts = [ ... ];
-
-    firewall.enable = false;
   };
 
   #time.timeZone = "Europe/Moscow";
@@ -191,6 +189,12 @@
     wireshark.enable = true;
 
     virt-manager.enable = true;
+
+    # Open firewall ports
+    kdeconnect = {
+      package = pkgs.gnomeExtensions.gsconnect;
+      enable = true;
+    };
   };
 
   virtualisation = {
