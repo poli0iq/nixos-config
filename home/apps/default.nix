@@ -39,4 +39,42 @@
     };
     style.name = "adwaita-dark";
   };
+
+  programs.mangohud = {
+    enable = true;
+    settings = {
+      gpu_status = true;
+      gpu_temp = true;
+      gpu_core_clock = true;
+      gpu_mem_clock = true;
+      gpu_power = true;
+
+      cpu_status = true;
+      cpu_temp = true;
+      cpu_mhz = true;
+      cpu_power = true;
+
+      ram = true;
+      vram = true;
+
+      fps = true;
+      frametime = true;
+
+      throttling_status = true;
+
+      text_outline = true;
+
+      gpu_name = true;
+      vulkan_driver = true;
+      wine = true;
+      winesync = true;
+      present_mode = true;
+      gamemode = true;
+
+      frame_timing = true;
+
+      font_scale = 1.5;
+      font_file = "${pkgs.adwaita-fonts}/share/fonts/Adwaita/AdwaitaMono-Bold.ttf";
+    };
+  };
 }
