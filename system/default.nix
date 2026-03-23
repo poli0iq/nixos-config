@@ -13,16 +13,20 @@
     # make nix3 commands consistent with the flake
     registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-
     settings = {
       auto-optimise-store = true;
+
       # Allow wheel group to use substituters
       trusted-users = [
         "root"
         "@wheel"
+      ];
+
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "impure-derivations"
+        "ca-derivations"
       ];
     };
 
