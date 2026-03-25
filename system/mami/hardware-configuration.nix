@@ -55,6 +55,12 @@
     options = [ "compress=zstd,noatime,discard=async,subvol=nix" ];
   };
 
+  fileSystems."/swap" = {
+    device = "/dev/mapper/cryptroot";
+    fsType = "btrfs";
+    options = [ "compress=zstd,noatime,discard=async,subvol=swap" ];
+  };
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/C7EC-613D";
     fsType = "vfat";
@@ -64,7 +70,12 @@
     ];
   };
 
-  swapDevices = [ ];
+  swapDevices = [{
+    device = "/swap/swapfile";
+    size = 8192;
+    # Both "=once" and "=pages"
+    discardPolicy = "both";
+  }];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
