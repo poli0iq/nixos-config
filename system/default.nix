@@ -117,6 +117,11 @@
   # Enable all SysRq functions
   boot.kernel.sysctl."kernel.sysrq" = 1;
 
+  boot.kernelParams = [
+    "zswap.enabled=1" # Harmless even it there's no backing swap
+    "zswap.shrinker_enabled=1" # Dynamic shrinker
+  ];
+
   environment.systemPackages =
     with pkgs;
     [
