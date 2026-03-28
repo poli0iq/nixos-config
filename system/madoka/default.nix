@@ -1,54 +1,54 @@
 {
-  config,
   lib,
   pkgs,
   ...
 }:
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
-  # Use the systemd-boot EFI boot loader.
-  #boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    # Use systemd-boot
+    #loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
 
-  # Needed to unlock LUKS with key from TPM
-  boot.initrd.systemd.enable = true;
+    # Required to unlock LUKS with a key from TPM
+    initrd.systemd.enable = true;
 
-  services.fprintd.enable = true;
-  hardware.bluetooth.enable = true;
-  hardware.graphics.extraPackages = with pkgs; [
-    intel-media-driver
-    intel-ocl
-    intel-compute-runtime
-    vpl-gpu-rt
-  ];
+    # Lanzaboote currently replaces systemd-boot
+    loader.systemd-boot.enable = lib.mkForce false;
 
-  # Lanzaboote currently replaces the systemd-boot module.
-  # This setting is usually set to true in configuration.nix
-  # generated at installation time. So we force it to false
-  # for now.
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-
-  boot.lanzaboote = {
-    enable = true;
-    pkiBundle = "/var/lib/sbctl";
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
+    };
   };
 
-  services.udev.extraRules = ''
-    # Enable wakeup on bluetooth devices activity
-    ACTION=="bind", SUBSYSTEM=="pci", DRIVER=="btintel_pcie", ATTR{power/wakeup}="enabled"
-  '';
+  hardware = {
+    bluetooth.enable = true;
 
-  # alsa-ucm-conf lacks DRC setup in EnableSequence, so it's disabled by default.
-  # It's present in BootSequence though
-  hardware.alsa.enablePersistence = true;
+    graphics.extraPackages = with pkgs; [
+      intel-media-driver
+      intel-ocl
+      intel-compute-runtime
+      vpl-gpu-rt
+    ];
 
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
+    # alsa-ucm-conf lacks DRC setup in EnableSequence,
+    # so it's disabled by default.
+    # It's present in BootSequence though,
+    # so they essentially assume we preserve the state
+    alsa.enablePersistence = true;
+  };
+
+  services = {
+    fprintd.enable = true;
+
+    udev.extraRules = ''
+      # Enable wakeup on bluetooth devices activity
+      ACTION=="bind", SUBSYSTEM=="pci", DRIVER=="btintel_pcie", ATTR{power/wakeup}="enabled"
+    '';
+  };
+
 }
