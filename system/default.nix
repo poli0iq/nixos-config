@@ -223,7 +223,11 @@
     banner = "you're cute!!! ><";
   };
 
-  services.desktopManager.gnome.enable = true;
+  services.desktopManager.gnome = {
+    enable = true;
+    # Fix fprintd settings in gnome-control-center
+    sessionPath = [ pkgs.gdm ];
+  };
 
   environment.gnome.excludePackages = with pkgs; [
     # I know how to use gnome thanks
