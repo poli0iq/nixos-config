@@ -51,4 +51,14 @@
     '';
   };
 
+  programs = {
+    gamemode.enable = true;
+
+    steam = {
+      enable = true;
+      package = pkgs.steam.override {
+        extraLibraries = p: with p; [ adwaita-icon-theme ];
+      };
+    };
+  };
 }
