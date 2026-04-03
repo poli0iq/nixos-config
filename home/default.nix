@@ -91,8 +91,8 @@
       init.defaultBranch = "main";
 
       sendemail = {
+        smtpuser = config.programs.git.settings.user.email;
         smtpserver = "0iq.dev";
-        smtpuser = "poli@0iq.dev";
         smtpencryption = "tls";
         smtpserverport = 587;
       };
