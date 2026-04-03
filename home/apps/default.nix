@@ -2,7 +2,6 @@
 {
   imports = [
     ./firefox.nix
-    ./zed.nix
   ];
 
   home.packages = with pkgs; [
