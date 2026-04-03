@@ -95,6 +95,9 @@
         smtpserver = "0iq.dev";
         smtpencryption = "tls";
         smtpserverport = 587;
+
+        suppresscc = "all";
+        confirm = "always";
       };
 
       # Unbreak mouse scrolling
