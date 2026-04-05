@@ -46,16 +46,19 @@
 
   #time.timeZone = "Europe/Moscow";
 
+  # Configure keymap for gdm, tty etc.
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "colemak";
+    #options = "eurosign:e,caps:escape";
+  };
+
   # i18n.defaultLocale = "en_US.UTF-8";
   console = {
     #font = "Lat2-Terminus16";
-    keyMap = "colemak";
-    # useXkbConfig = true; # use xkbOptions in tty.
+    #keyMap = "colemak";
+    useXkbConfig = true;
   };
-
-  # Configure keymap (in my case primarily for GDM)
-  services.xserver.xkb.layout = "us+colemak";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
