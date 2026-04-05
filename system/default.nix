@@ -267,4 +267,21 @@
 
   # Fancy boot splash screen
   boot.plymouth.enable = true;
+
+  # DRM console
+  #services.kmscon = {
+  #  enable = true;
+
+  #  useXkbConfig = true;
+  #  hwRender = true;
+  #  fonts = [
+  #    {
+  #      name = "Adwaita Mono";
+  #      package = pkgs.adwaita-fonts;
+  #    }
+  #  ];
+  #  extraConfig = ''
+  #    font-size=14
+  #  '';
+  #};
 }
