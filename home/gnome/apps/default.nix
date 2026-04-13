@@ -23,6 +23,8 @@
     gnome-solanum
     # Email client (I wish there was a better one)
     geary
+    # Manga reader
+    komikku
   ];
 
   # TODO: remove once upgraded upstream
