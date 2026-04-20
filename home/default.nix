@@ -19,6 +19,7 @@
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
+      NIXOS_OZONE_WL = 1;
     };
   };
 
@@ -67,6 +68,7 @@
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
+      NIXOS_OZONE_WL = 1;
     };
   };
 
