@@ -25,7 +25,7 @@
 
   home.packages = with pkgs; [
     # utils
-    libqalculate
+    numbat
     jq
     ripgrep
     pdfgrep
