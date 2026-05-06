@@ -25,7 +25,6 @@
 
   home.packages = with pkgs; [
     # utils
-    numbat
     jq
     ripgrep
     pdfgrep
@@ -313,5 +312,26 @@
         }
       ];
     };
+  };
+
+  programs.numbat = {
+    enable = true;
+
+    settings = {
+      edit-mode = "vi";
+    };
+
+    initFile = ''
+      use units::currencies
+
+      unit k = thousand
+      unit kk = million
+
+      # Define RSD currency
+      @name("Serbian dinar")
+      @url("https://en.wikipedia.org/wiki/Serbian_dinar")
+      @aliases(serbian_dinars, RSD: short, rsd)
+      unit serbian_dinar: Money = USD / 100 # Rough but OK
+    '';
   };
 }
