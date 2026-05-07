@@ -67,6 +67,7 @@
         haskell.enable = true;
         typst.enable = true;
         bash.enable = true;
+        typescript.enable = true;
       };
 
       visuals = {
