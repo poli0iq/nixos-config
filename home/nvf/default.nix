@@ -23,7 +23,6 @@
         enable = true;
         # A really bad idea for C projects
         formatOnSave = false;
-        lightbulb.enable = true;
         trouble.enable = true;
         lspSignature.enable = true;
 
