@@ -126,6 +126,8 @@
 
       comments.comment-nvim.enable = true;
 
+      utility.vim-wakatime.enable = true;
+
       startPlugins = with pkgs.vimPlugins; [
         adwaita-nvim
         vim-nix # required for correct indentation
