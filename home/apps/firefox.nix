@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 {
-  home.file.".mozilla/firefox/default/chrome/firefox-gnome-theme".source = inputs.firefox-gnome-theme;
+  xdg.configFile."mozilla/firefox/default/chrome/firefox-gnome-theme".source = inputs.firefox-gnome-theme;
   programs.firefox = {
     enable = true;
 
