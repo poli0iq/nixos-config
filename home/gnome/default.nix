@@ -70,7 +70,7 @@
 
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 10;
-      focus-mode = "mouse";
+      focus-mode = "sloppy";
     };
 
     "org/gnome/shell/keybindings" = {
