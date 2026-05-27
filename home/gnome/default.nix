@@ -24,6 +24,7 @@
     "org/gnome/desktop/interface" = {
       #color-scheme = "prefer-dark";
       show-battery-percentage = true;
+      gtk-enable-primary-paste = true; # HOW DARED YOU
     };
 
     "org/gnome/desktop/input-sources" = {
