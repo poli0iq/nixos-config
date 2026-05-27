@@ -36,6 +36,11 @@
       url = "github:yokoffing/Betterfox";
       flake = false;
     };
+
+    albumwm = {
+      url = "github:poli0iq/albumwm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

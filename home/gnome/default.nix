@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 {
   imports = [
     ./apps
@@ -8,7 +13,7 @@
     enable = true;
 
     extensions = with pkgs.gnomeExtensions; [
-      { package = paperwm; }
+      { package = inputs.albumwm.packages.${pkgs.stdenv.hostPlatform.system}.default; }
       { package = gsconnect; }
       { package = vitals; }
       { package = blur-my-shell; }
@@ -121,23 +126,15 @@
       minimize = [ "<Super><Alt>h" ];
     };
 
-    "org/gnome/shell/extensions/paperwm" = {
+    "org/gnome/shell/extensions/albumwm" = {
       disable-scratch-in-overview = true;
       gesture-enabled = false;
-      # Restore gnome workspace pill
-      show-workspace-indicator = false;
-      # Mimic "smart gaps" but manually
-      maximize-within-tiling = false;
-      # Leave only right and down
-      open-window-position-option-left = false;
       window-gap = 10;
       vertical-margin = 10;
       vertical-margin-bottom = 10;
-      selection-border-size = 0;
-      selection-border-radius = 0;
     };
 
-    "org/gnome/shell/extensions/paperwm/keybindings" = {
+    "org/gnome/shell/extensions/albumwm/keybindings" = {
       close-window = [ "<Super>q" ];
       live-alt-tab = [ "" ];
       live-alt-tab-backward = [ "" ];
@@ -167,7 +164,6 @@
         "<Shift><Super>Page_Up"
         "<Shift><Control><Super>k"
       ];
-      new-window = [ "" ];
       resize-h-dec = [ "" ];
       resize-h-inc = [ "" ];
       resize-w-dec = [ "" ];
