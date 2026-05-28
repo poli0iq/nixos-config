@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -23,6 +24,10 @@
       enable = true;
       pkiBundle = "/var/lib/sbctl";
     };
+
+    # Exposes DDC/CI monitor brightness as /sys/class/backlight/*
+    kernelModules = [ "ddcci-backlight" ];
+    extraModulePackages = with config.boot.kernelPackages; [ ddcci-driver ];
   };
 
   hardware = {
@@ -48,6 +53,9 @@
     udev.extraRules = ''
       # Enable wakeup on bluetooth devices activity
       ACTION=="bind", SUBSYSTEM=="pci", DRIVER=="btintel_pcie", ATTR{power/wakeup}="enabled"
+
+      # Instantiate ddcci
+      SUBSYSTEM=="i2c", ACTION=="add", ATTR{name}=="AUX USBC*", RUN+="${pkgs.runtimeShell} -c '${pkgs.coreutils}/bin/sleep 5 && echo ddcci 0x37 >/sys%p/new_device'"
     '';
   };
 
