@@ -62,6 +62,12 @@
       ];
     };
 
+    "org/gnome/shell" = {
+      # For whatever reason, since GNOME 50 they've decided to hide it when
+      # there's only one user.
+      always-show-log-out = true;
+    };
+
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>t";
       name = "Terminal";
