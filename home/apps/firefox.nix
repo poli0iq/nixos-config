@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }:
 {
-  xdg.configFile."mozilla/firefox/default/chrome/firefox-gnome-theme".source = inputs.firefox-gnome-theme;
+  xdg.configFile."mozilla/firefox/default/chrome/firefox-gnome-theme".source =
+    inputs.firefox-gnome-theme;
   programs.firefox = {
     enable = true;
 
@@ -133,16 +134,12 @@
           home-manager-options = {
             urls = [
               {
-                template = "https://home-manager-options.extranix.com/?release=master";
-                type = "searchform";
-              }
-              {
-                template = "https://home-manager-options.extranix.com/?release=master&query={searchTerms}";
+                template = "https://search.nixos.org/options?channel=unstable&source=home_manager&query={searchTerms}";
               }
             ];
 
             name = "Home Manager Options";
-            icon = "https://home-manager-options.extranix.com/images/favicon.png";
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             definedAliases = [
               "@homemanager"
               "@hm"
