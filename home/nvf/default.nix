@@ -108,7 +108,12 @@
         gitsigns.codeActions.enable = false;
       };
 
-      notify.nvim-notify.enable = true;
+      notify.nvim-notify = {
+        enable = true;
+        # adwaita_transparent removes Normal bg, so NotifyBackground can't be
+        # derived from it.
+        setupOpts.background_colour = "#000000";
+      };
 
       ui = {
         borders.enable = true;
