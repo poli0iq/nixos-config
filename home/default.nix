@@ -48,6 +48,7 @@
     valgrind
     gdb
     strace
+    wakatime-cli
 
     # ctf
     nmap
