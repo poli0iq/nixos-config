@@ -198,6 +198,10 @@
       # Unfuck Shift-Tab (fzf integration remaps it)
       bind --erase shift-tab
       bind -M insert --erase shift-tab
+
+      # Clear the scrollback on Ctrl-l
+      bind ctrl-l 'clear; commandline -f repaint'
+      bind -M insert ctrl-l 'clear; commandline -f repaint'
     '';
 
     functions = {
