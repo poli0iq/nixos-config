@@ -340,4 +340,6 @@
       unit serbian_dinar: Money = USD / 100 # Rough but OK
     '';
   };
+
+  programs.direnv.enable = true;
 }
