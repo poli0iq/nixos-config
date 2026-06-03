@@ -69,6 +69,14 @@
         typescript.enable = true;
       };
 
+      # nvf only enables eslint_d if these exists in cwd, but its default list
+      # omits the TypeScript variants (eslint loads them via jiti).
+      diagnostics.nvim-lint.linters.eslint_d.required_files = [
+        "eslint.config.ts"
+        "eslint.config.mts"
+        "eslint.config.cts"
+      ];
+
       visuals = {
         nvim-cursorline.enable = true;
 
