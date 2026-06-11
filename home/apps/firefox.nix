@@ -55,7 +55,7 @@
         ${builtins.readFile "${inputs.firefox-gnome-theme}/configuration/user.js"}
         ${builtins.readFile "${inputs.betterfox}/user.js"}
 
-        # Bring back search autosuggestions that are disabled by betterfox
+        // Bring back search autosuggestions that are disabled by betterfox
         user_pref("browser.search.suggest.enabled", true);
         user_pref("browser.urlbar.quicksuggest.enabled", true);
       '';
