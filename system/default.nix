@@ -60,8 +60,20 @@
     useXkbConfig = true;
   };
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-browsed
+    ];
+  };
 
   hardware.graphics.enable = true;
 
