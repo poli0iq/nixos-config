@@ -78,15 +78,33 @@
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
       ];
+
+      screensaver = [ "<Control><Alt><Super>l" ];
+      rotate-video-lock-static = [];
     };
 
     "org/gnome/desktop/wm/preferences" = {
+      dynamic-workspaces = false;
       num-workspaces = 10;
+
+      # Focus follows mouse, but isn't lost when the mouse moves to empty space.
       focus-mode = "sloppy";
+
+      # Not compatible with AlbumWM.
+      edge-tiling = false;
+
+      # WooP works bad with AlbumWM (but works).
+      workspaces-only-on-primary = false;
+    };
+
+    "org/gnome/mutter/keybindings" = {
+      # Not compatible with AlbumWM.
+      toggle-tiled-left = [];
+      toggle-tiled-right = [];
     };
 
     "org/gnome/shell/keybindings" = {
-      # It was Super+{number}, which is desired for workspace switching.
+      # Super+{number} by default, which we need for workspaces.
       switch-to-application-1 = [ "" ];
       switch-to-application-2 = [ "" ];
       switch-to-application-3 = [ "" ];
@@ -99,10 +117,10 @@
     };
 
     "org/gnome/desktop/wm/keybindings" = {
-      # The "<Super>Home/End" was there by default.
-      # However, "<Super>Home" on switch-to-workspace-1 conflicts with PaperWM,
-      # and I wasn't using it anyway, so let it go.
-      switch-to-workspace-1 = [ "<Super>1" ];
+      switch-to-workspace-1 = [
+        "<Super>Home"
+        "<Super>1"
+      ];
       switch-to-workspace-2 = [ "<Super>2" ];
       switch-to-workspace-3 = [ "<Super>3" ];
       switch-to-workspace-4 = [ "<Super>4" ];
@@ -113,6 +131,23 @@
       switch-to-workspace-9 = [ "<Super>9" ];
       switch-to-workspace-10 = [ "<Super>0" ];
       switch-to-workspace-last = [ "<Super>End" ];
+
+      switch-to-workspace-left = [
+        "<Super>i"
+
+        "<Super>Page_Up"
+        "<Super>KP_Prior"
+        "<Super><Alt>Left"
+        "<Control><Alt>Left"
+      ];
+      switch-to-workspace-right = [
+        "<Super>u"
+
+        "<Super>Page_Down"
+        "<Super>KP_Next"
+        "<Super><Alt>Right"
+        "<Control><Alt>Right"
+      ];
 
       move-to-workspace-1 = [
         "<Super><Shift>Home"
@@ -129,77 +164,36 @@
       move-to-workspace-10 = [ "<Super><Shift>0" ];
       move-to-workspace-last = [ "<Super><Shift>End" ];
 
-      minimize = [ "<Super><Alt>h" ];
+      move-to-workspace-left = [
+        "<Shift><Super>i"
+
+        "<Super><Shift>Page_Up"
+        "<Super><Shift>KP_Prior"
+        "<Super><Shift><Alt>Left"
+        "<Control><Shift><Alt>Left"
+      ];
+      move-to-workspace-right = [
+        "<Shift><Super>u"
+
+        "<Super><Shift>Page_Down"
+        "<Super><Shift>KP_Next"
+        "<Super><Shift><Alt>Right"
+        "<Control><Shift><Alt>Right"
+      ];
+
+      minimize = [ "<Control><Alt><Super>h" ];
+
+      move-to-monitor-left = [ "<Shift><Alt><Super>h" ];
+      move-to-monitor-down = [ "<Shift><Alt><Super>j" ];
+      move-to-monitor-up = [ "<Shift><Alt><Super>k" ];
+      move-to-monitor-right = [ "<Shift><Alt><Super>l" ];
     };
 
     "org/gnome/shell/extensions/albumwm" = {
-      disable-scratch-in-overview = true;
       gesture-enabled = false;
-      window-gap = 10;
-      vertical-margin = 10;
-      vertical-margin-bottom = 10;
     };
 
     "org/gnome/shell/extensions/albumwm/keybindings" = {
-      close-window = [ "<Super>q" ];
-      live-alt-tab = [ "" ];
-      live-alt-tab-backward = [ "" ];
-      live-alt-tab-scratch = [ "<Super>minus" ];
-      live-alt-tab-scratch-backward = [ "" ];
-      move-down = [
-        "<Shift><Super>Down"
-        "<Shift><Super>j"
-      ];
-      move-down-workspace = [
-        "<Shift><Super>Page_Down"
-        "<Shift><Control><Super>j"
-      ];
-      move-left = [
-        "<Shift><Super>Left"
-        "<Shift><Super>h"
-      ];
-      move-right = [
-        "<Shift><Super>Right"
-        "<Shift><Super>l"
-      ];
-      move-up = [
-        "<Shift><Super>Up"
-        "<Shift><Super>k"
-      ];
-      move-up-workspace = [
-        "<Shift><Super>Page_Up"
-        "<Shift><Control><Super>k"
-      ];
-      resize-h-dec = [ "" ];
-      resize-h-inc = [ "" ];
-      resize-w-dec = [ "" ];
-      resize-w-inc = [ "" ];
-      switch-down = [ "<Super>j" ];
-      switch-down-workspace = [
-        "<Super>Page_Down"
-        "<Control><Super>j"
-      ];
-      switch-last = [ "" ];
-      switch-left = [
-        "<Super>Left"
-        "<Super>h"
-      ];
-      switch-next = [ "" ];
-      switch-open-window-position = [ "<Super>b" ];
-      switch-previous = [ "" ];
-      switch-right = [
-        "<Super>Right"
-        "<Super>l"
-      ];
-      switch-up = [ "<Super>k" ];
-      switch-up-workspace = [
-        "<Super>Page_Up"
-        "<Control><Super>k"
-      ];
-      take-window = [ "<Shift><Super>t" ];
-      toggle-scratch = [ "<Shift><Super>space" ];
-      toggle-scratch-window = [ "<Shift><Super>underscore" ];
-      center-vertically = [ "<Shift><Super>v" ];
     };
   };
 }
