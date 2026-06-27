@@ -343,4 +343,6 @@
   };
 
   programs.direnv.enable = true;
+
+  programs.devenv.enable = true;
 }
