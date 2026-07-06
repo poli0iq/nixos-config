@@ -22,6 +22,9 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
       NIXOS_OZONE_WL = 1;
+
+      # It's annoying and useless since I already have status in fish
+      DEVENV_TUI = false;
     };
   };
 
