@@ -80,7 +80,7 @@
       ];
 
       screensaver = [ "<Control><Alt><Super>l" ];
-      rotate-video-lock-static = [];
+      rotate-video-lock-static = [ ];
     };
 
     "org/gnome/desktop/wm/preferences" = {
@@ -99,8 +99,8 @@
 
     "org/gnome/mutter/keybindings" = {
       # Not compatible with AlbumWM.
-      toggle-tiled-left = [];
-      toggle-tiled-right = [];
+      toggle-tiled-left = [ ];
+      toggle-tiled-right = [ ];
     };
 
     "org/gnome/shell/keybindings" = {
