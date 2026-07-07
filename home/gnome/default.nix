@@ -191,7 +191,6 @@
     };
 
     "org/gnome/shell/extensions/albumwm" = {
-      gesture-enabled = false;
     };
 
     "org/gnome/shell/extensions/albumwm/keybindings" = {
