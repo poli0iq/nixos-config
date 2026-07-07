@@ -183,10 +183,11 @@
 
       minimize = [ "<Control><Alt><Super>h" ];
 
-      move-to-monitor-left = [ "<Shift><Ctrl><Super>h" ];
-      move-to-monitor-down = [ "<Shift><Ctrl><Super>j" ];
-      move-to-monitor-up = [ "<Shift><Ctrl><Super>k" ];
-      move-to-monitor-right = [ "<Shift><Ctrl><Super>l" ];
+      # Replaced by AlbumWM's move-window-to-monitor-{left,below,above,right}.
+      move-to-monitor-left = [ ];
+      move-to-monitor-down = [ ];
+      move-to-monitor-up = [ ];
+      move-to-monitor-right = [ ];
     };
 
     "org/gnome/shell/extensions/albumwm" = {
