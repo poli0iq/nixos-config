@@ -7,6 +7,7 @@
 {
   imports = [
     ./apps
+    ./fix-display.nix
   ];
 
   programs.gnome-shell = {
@@ -24,6 +25,10 @@
       { package = appindicator; }
     ];
   };
+
+  home.packages = with pkgs; [
+    gjs
+  ];
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
