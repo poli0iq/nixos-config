@@ -1,6 +1,8 @@
 { pkgs, inputs, ... }:
 {
   imports = [
+    ./vscodium
+
     ./firefox.nix
   ];
 
