@@ -89,7 +89,6 @@
     };
 
     "org/gnome/desktop/wm/preferences" = {
-      dynamic-workspaces = false;
       num-workspaces = 10;
 
       # Focus follows mouse, but isn't lost when the mouse moves to empty space.
