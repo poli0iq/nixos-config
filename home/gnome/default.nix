@@ -97,7 +97,7 @@
       # Not compatible with AlbumWM.
       edge-tiling = false;
 
-      # WooP works bad with AlbumWM (but works).
+      # One workspace, but always visible
       workspaces-only-on-primary = false;
     };
 
