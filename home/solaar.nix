@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ lib, ... }:
 let
   mkSolaarKeybinding =
     key: action:
@@ -24,23 +24,4 @@ in
     (mkSolaarKeybinding "Screen Capture" "Print")
     (mkSolaarKeybinding "Mute Microphone" "XF86_AudioMicMute")
   ];
-
-  systemd.user.services.solaar = {
-    Unit = {
-      Description = "Logitech device settings manager";
-      PartOf = [ "graphical-session.target" ];
-      After = [ "graphical-session.target" ];
-    };
-
-    Service = {
-      Type = "simple";
-      ExecStart = "${pkgs.solaar}/bin/solaar --window hide";
-      Restart = "on-failure";
-      RestartSec = 5;
-    };
-
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-  };
 }
