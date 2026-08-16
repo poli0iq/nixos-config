@@ -81,10 +81,8 @@
   hardware.steam-hardware.enable = true;
 
   # Solaar
-  hardware.logitech.wireless = {
-    enable = true;
-    enableGraphical = true;
-  };
+  hardware.logitech.wireless.enable = true;
+  programs.solaar.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.poli = {
