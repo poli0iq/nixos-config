@@ -46,6 +46,11 @@
   services = {
     fprintd.enable = true;
 
+    pipewire.extraLv2Packages = with pkgs; [
+      calf
+      lsp-plugins
+    ];
+
     udev.extraRules = ''
       # Enable wakeup on bluetooth devices activity
       ACTION=="bind", SUBSYSTEM=="pci", DRIVER=="btintel_pcie", ATTR{power/wakeup}="enabled"
