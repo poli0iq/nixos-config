@@ -60,7 +60,6 @@
       dynamic-workspaces = false;
 
       experimental-features = [
-        "variable-refresh-rate"
         "autoclose-xwayland"
       ];
     };
