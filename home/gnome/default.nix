@@ -60,9 +60,7 @@
       dynamic-workspaces = false;
 
       experimental-features = [
-        "scale-monitor-framebuffer"
         "variable-refresh-rate"
-        "xwayland-native-scaling"
         "autoclose-xwayland"
       ];
     };
