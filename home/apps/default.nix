@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 {
   imports = [
-    ./vscodium
+    ./vscode
 
     ./firefox.nix
   ];

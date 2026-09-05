@@ -4,41 +4,35 @@
   inputs,
   ...
 }:
-let
-  # Overlay so our allowUnfree applies.
-  inherit (pkgs) open-vsx vscode-marketplace;
-in
 {
+  # Overlay so our allowUnfree applies.
   nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];
 
-  programs.vscodium = {
+  programs.vscode = {
     enable = true;
+    mutableExtensionsDir = true;
+    argvSettings.enable-crash-reporter = false;
 
     profiles.default = {
       enableUpdateCheck = false;
-      enableExtensionUpdateCheck = false;
+      enableExtensionUpdateCheck = true;
 
-      extensions =
-        (with vscode-marketplace; [
-          anthropic.claude-code
-          openai.chatgpt
-        ])
-        ++ (with open-vsx; [
-          vscodevim.vim
-          piousdeer.adwaita-theme
+      extensions = with pkgs.vscode-marketplace; [
+        vscodevim.vim
+        piousdeer.adwaita-theme
 
-          jnoortheen.nix-ide
-          llvm-vs-code-extensions.vscode-clangd
-          rust-lang.rust-analyzer
-          myriad-dreamin.tinymist
-          mads-hartmann.bash-ide-vscode
-          dbaeumer.vscode-eslint
+        jnoortheen.nix-ide
+        llvm-vs-code-extensions.vscode-clangd
+        rust-lang.rust-analyzer
+        myriad-dreamin.tinymist
+        mads-hartmann.bash-ide-vscode
+        dbaeumer.vscode-eslint
 
-          wakatime.vscode-wakatime
+        wakatime.vscode-wakatime
 
-          mkhl.direnv
-          datakurre.devenv
-        ]);
+        mkhl.direnv
+        datakurre.devenv
+      ];
 
       # Ctrl+0 focuses the primary side bar, ctrl+alt+b toggles the secondary one
       keybindings = [
@@ -49,6 +43,14 @@ in
       ];
 
       userSettings = {
+        "extensions.autoCheckUpdates" = true;
+        "extensions.autoUpdate" = "on";
+
+        "telemetry.telemetryLevel" = "off";
+        "telemetry.feedback.enabled" = false;
+        "workbench.enableExperiments" = false;
+        "chat.disableAIFeatures" = true;
+
         # UI settings
         "window.titleBarStyle" = "custom";
         "window.menuBarVisibility" = "compact";
