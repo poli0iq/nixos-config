@@ -104,7 +104,7 @@
 
     dbus = {
       enable = true;
-      packages = [ pkgs.gcr ];
+      packages = [ pkgs.gcr_4 ];
     };
 
     fwupd.enable = true;
