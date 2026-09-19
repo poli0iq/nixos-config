@@ -52,8 +52,8 @@
         "chat.disableAIFeatures" = true;
 
         # UI settings
-        # 1.2^zoom = 11pt * (96/72) / 13px: match GNOME at an integer font size.
-        "window.zoomLevel" = 0.661622190539646;
+        # 1.2^zoom = 11pt * (96/72) / 14px: match GNOME at an integer font size.
+        "window.zoomLevel" = 0.2551536771236884;
         "window.titleBarStyle" = "custom";
         "window.menuBarVisibility" = "compact";
         "window.commandCenter" = true;
@@ -66,9 +66,9 @@
 
         # Mimic Adwaita
         "editor.fontFamily" = "'Adwaita Mono', monospace";
-        "editor.fontSize" = 13;
+        "editor.fontSize" = 14;
         "terminal.integrated.fontFamily" = "'Adwaita Mono'";
-        "terminal.integrated.fontSize" = 13;
+        "terminal.integrated.fontSize" = 14;
         "markdown.preview.fontFamily" = "'Adwaita Sans', sans-serif";
         "markdown.preview.fontSize" = 16;
 
