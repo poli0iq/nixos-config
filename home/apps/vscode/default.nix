@@ -52,6 +52,7 @@
         "chat.disableAIFeatures" = true;
 
         # UI settings
+        "workbench.experimental.modernUI" = true;
         # 1.2^zoom = 11pt * (96/72) / 14px: match GNOME at an integer font size.
         "window.zoomLevel" = 0.2551536771236884;
         "window.titleBarStyle" = "custom";
