@@ -34,6 +34,8 @@
         "font.name.serif.x-cyrillic" = "DejaVu Serif";
         "font.name.monospace.x-cyrillic" = "Adwaita Mono";
 
+        "browser.tabs.unloadOnLowMemory" = true;
+
         # STOP FUCKING HTML ENCODING CYRILLIC TEXT ON URL COPY
         "browser.urlbar.decodeURLsOnCopy" = true;
 
