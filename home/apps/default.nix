@@ -8,7 +8,7 @@
 
   home.packages = with pkgs; [
     gimp3
-    libreoffice-fresh
+    libreoffice
     telegram-desktop
 
     # fonts
