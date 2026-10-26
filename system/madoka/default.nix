@@ -14,9 +14,6 @@
     #loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
 
-    # Required to unlock LUKS with a key from TPM
-    initrd.systemd.enable = true;
-
     # Lanzaboote currently replaces systemd-boot
     loader.systemd-boot.enable = lib.mkForce false;
 
