@@ -73,7 +73,10 @@
         "markdown.preview.fontFamily" = "'Adwaita Sans', sans-serif";
         "markdown.preview.fontSize" = 16;
 
-        "editor.inertialScroll" = true;
+        # Would be cool, but it's locked to 60fps and can't distinguish
+        # a high-res mouse wheel from a touchpad.
+        #"editor.inertialScroll" = true;
+
         "editor.lineNumbers" = "relative";
         "editor.cursorSurroundingLines" = 3;
         "editor.rulers" = [ 100 ];
