@@ -1,10 +1,17 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 {
   programs.home-manager.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
   imports = [
+    ./account.nix
+
     ./nvf
 
     ./starship
@@ -87,7 +94,12 @@
     settings = {
       user = {
         name = "Polina Vishneva";
-        email = "poli@0iq.dev";
+        email =
+          {
+            personal = "poli@0iq.dev";
+            work = "polina@unikraft.com";
+          }
+          .${config.accountType};
       };
 
       rebase = {
@@ -96,7 +108,7 @@
 
       init.defaultBranch = "main";
 
-      sendemail = {
+      sendemail = lib.mkIf (config.accountType == "personal") {
         smtpuser = config.programs.git.settings.user.email;
         smtpserver = "0iq.dev";
         smtpencryption = "tls";
