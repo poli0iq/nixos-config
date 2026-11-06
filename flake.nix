@@ -118,6 +118,8 @@
           "poli@madoka" = makeHomeConfiguration "poli" [ ];
 
           "poli@mami" = makeHomeConfiguration "poli" [ ];
+
+          "polina@madoka" = makeHomeConfiguration "polina" [ { accountType = "work"; } ];
         };
     };
 }
