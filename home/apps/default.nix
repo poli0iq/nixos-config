@@ -9,7 +9,6 @@
   home.packages = with pkgs; [
     gimp3
     libreoffice
-    telegram-desktop
 
     # fonts
     font-awesome
