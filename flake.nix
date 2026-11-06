@@ -96,10 +96,10 @@
       homeConfigurations =
         let
           makeHomeConfiguration =
-            modules:
+            username: modules:
             home-manager.lib.homeManagerConfiguration {
               pkgs = nixpkgs.legacyPackages.x86_64-linux;
-              extraSpecialArgs = { inherit inputs; };
+              extraSpecialArgs = { inherit inputs username; };
               modules = [
                 ./home
                 ./home/gnome
@@ -111,11 +111,11 @@
             };
         in
         {
-          "poli" = makeHomeConfiguration [ ];
+          "poli" = makeHomeConfiguration "poli" [ ];
 
-          "poli@madoka" = makeHomeConfiguration [ ];
+          "poli@madoka" = makeHomeConfiguration "poli" [ ];
 
-          "poli@mami" = makeHomeConfiguration [ ];
+          "poli@mami" = makeHomeConfiguration "poli" [ ];
         };
     };
 }

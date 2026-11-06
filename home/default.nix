@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  username,
+  ...
+}:
 {
   programs.home-manager.enable = true;
 
@@ -15,8 +20,8 @@
   ];
 
   home = {
-    username = "poli";
-    homeDirectory = "/home/poli";
+    inherit username;
+    homeDirectory = "/home/${username}";
 
     sessionVariables = {
       EDITOR = "nvim";
