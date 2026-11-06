@@ -99,8 +99,10 @@
             username: modules:
             home-manager.lib.homeManagerConfiguration {
               pkgs = nixpkgs.legacyPackages.x86_64-linux;
-              extraSpecialArgs = { inherit inputs username; };
+              extraSpecialArgs = { inherit inputs; };
               modules = [
+                { home.username = username; }
+
                 ./home
                 ./home/gnome
                 nvf.homeManagerModules.default
