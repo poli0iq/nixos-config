@@ -98,6 +98,18 @@
     ];
     shell = pkgs.fish;
   };
+  users.users.polina = {
+    isNormalUser = true;
+    extraGroups = [
+      "wheel"
+      "video"
+      "audio"
+      "networkmanager"
+      "wireshark"
+      "dialout"
+    ];
+    shell = pkgs.fish;
+  };
 
   services = {
     openssh.enable = true;
