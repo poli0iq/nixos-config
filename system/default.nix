@@ -309,4 +309,7 @@
   #    font-size=14
   #  '';
   #};
+
+  # Load generic dynamically linked ELFs.
+  programs.nix-ld.enable = true;
 }
