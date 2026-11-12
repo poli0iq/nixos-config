@@ -234,6 +234,7 @@
 
   virtualisation = {
     podman.enable = true;
+    docker.enable = true;
 
     libvirtd = {
       enable = true;
