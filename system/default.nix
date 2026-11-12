@@ -95,6 +95,7 @@
       "networkmanager"
       "wireshark"
       "dialout"
+      "docker"
     ];
     shell = pkgs.fish;
   };
@@ -107,6 +108,7 @@
       "networkmanager"
       "wireshark"
       "dialout"
+      "docker"
     ];
     shell = pkgs.fish;
   };
