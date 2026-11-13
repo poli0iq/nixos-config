@@ -190,7 +190,12 @@
   security = {
     polkit.enable = true;
 
-    sudo.enable = true;
+    sudo = {
+      enable = true;
+      extraConfig = ''
+        @includedir /etc/sudoers.d
+      '';
+    };
 
     # Needed for PipeWire
     rtkit.enable = true;
@@ -217,6 +222,8 @@
         polkit-1.rules.auth.fprintd-lid-check = fprintdLidCheck;
       };
   };
+
+  systemd.tmpfiles.rules = [ "d /etc/sudoers.d 0750 root root -" ];
 
   programs = {
     fish.enable = true;
