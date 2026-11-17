@@ -201,6 +201,13 @@
     };
 
     "org/gnome/shell/extensions/albumwm" = {
+      winprops = map builtins.toJSON [
+        {
+          wm_class = "dev.zed.Zed";
+          title = "/^Zed . Settings$/";
+          float = true;
+        }
+      ];
     };
 
     "org/gnome/shell/extensions/albumwm/keybindings" = {
