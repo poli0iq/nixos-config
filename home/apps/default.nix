@@ -2,6 +2,7 @@
 {
   imports = [
     ./vscode
+    ./zed
 
     ./firefox.nix
   ];
