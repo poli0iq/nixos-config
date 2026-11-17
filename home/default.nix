@@ -43,6 +43,8 @@
     xdg-utils
     wl-clipboard
     android-tools
+    socat
+    bubblewrap
 
     # dev
     clang
