@@ -9,6 +9,14 @@
       "wakatime"
     ];
 
+    userKeymaps = [
+      {
+        # Vim mode turns ctrl-w into a window prefix, override it back
+        context = "VimControl && !menu || !Editor && !Terminal";
+        bindings.ctrl-w = "pane::CloseActiveItem";
+      }
+    ];
+
     userSettings = {
       title_bar.show_sign_in = false;
       edit_predictions.allow_data_collection = "no";
